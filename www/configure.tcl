@@ -168,12 +168,12 @@ switch $sector {
 	set install_pt 0
     }
     translation {
-	set install_pc 1
+	set install_pc 0
 	set install_pt 1
     }
     default {
 	set install_pc 1
-	set install_pt 1
+	set install_pt 0
     }
 }
 
