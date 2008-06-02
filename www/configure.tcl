@@ -178,10 +178,6 @@ switch $sector {
 }
 
 
-set install_pc 1
-set install_pt 1
-
-
 # ---------------------------------------------------------------
 # Disable Consulting Stuff
 
