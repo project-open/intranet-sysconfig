@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <message_catalog package_key="intranet-sysconfig" locale="de_DE" charset="ISO-8859-1">
 
+  <msg key="LDAP_Configuration_Wizard">LDAP Konfigurationsassistent</msg>
   <msg key="Page_deptcomp">Abteilung</msg>
   <msg key="Page_features">Funktionen</msg>
   <msg key="Page_logo">Logo</msg>
@@ -18,4 +19,5 @@
   <msg key="SysConfig">SysConfig</msg>
   <msg key="SysConfig_Wizard">SysConfig Assistent</msg>
   <msg key="System_Config_Wizard">System Konfigurations Assistent</msg>
+  <msg key="System_Configuration_Wizard">System Konfigurationsassistent</msg>
 </message_catalog>
