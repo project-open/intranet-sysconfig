@@ -18,7 +18,7 @@ ad_library {
 ad_proc -public im_package_sysconfig_id {} {
     Returns the package id of the intranet-sysconfig module
 } {
-    return [util_memoize "im_package_sysconfig_id_helper"]
+    return [util_memoize [list im_package_sysconfig_id_helper]]
 }
 
 ad_proc -private im_package_sysconfig_id_helper {} {
@@ -59,8 +59,8 @@ ad_proc -public im_sysconfig_component { } {
 </table>
 
 	<p>
-	You need to agree with the license terms of ALL of <br>
-	these authors prio to using the software.
+	By using this software, you are agreeing with the author's licensing
+        terms.
 	</p>
 
 "
@@ -113,7 +113,7 @@ ad_proc -public im_sysconfig_admin_guide {
     set po "<span class=brandsec>&\#93;</span><span class=brandfirst>po</span><span class=brandsec>&\#91;</span>"
     set project_open "<span class=brandsec>&\#93;</span><span class=brandfirst>project-open</span><span class=brandsec>&\#91;</span>"
     set title "Guide to $po Configuration"
-    set main_menu_id [util_memoize [list db_string main_menu "select menu_id from im_menus where label='main'" -default 0]]
+    set main_menu_id [im_menu_id_from_label "main"]
     set return_url [im_url_with_query]
     set help_site "http://www.project-open.org/en"
     set pageroot [ns_info pageroot]
