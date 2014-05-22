@@ -9,8 +9,9 @@
 
 <h2>Trust Model</h2>
 
-Please choose how much you want to trust your "Employees" (normal staff) 
-and "Project Managers"? "Senior Managers" are trusted anyway...
+Please choose how much you want your "Employees" (general staff) to access <br>
+or modify. Please do the same for your "Project Managers".<br>
+"Senior Managers" should have full access in any configuration.
 
 <p>
 <table>
@@ -58,7 +59,7 @@ and "Project Managers"? "Senior Managers" are trusted anyway...
 	Typical Configuration: <br>
 	"Employees" are allowed to see and edit all projects,
 	but don't get to see the complete customer list.
-	Financial management is limited to "Senior Managers"
+	Access to financial data is limited to "Senior Managers"
 	and "Accountants".
 </td>
 </tr>
@@ -75,8 +76,8 @@ and "Project Managers"? "Senior Managers" are trusted anyway...
 </td>
 <td>
 	Permissive Configuration:<br>
-	"Employees" don't need to know about finance, but apart
-	from that everybody has access to everything.
+	"Employees" don't see financial data, but apart
+	from that, everybody has access to everything.
 </td>
 </tr>
 </table>

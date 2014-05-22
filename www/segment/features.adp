@@ -12,10 +12,9 @@
 <tr><td colspan=3>
 
 	<p>
-	@po_small;noquote@ offers a total of ~100 packages which can be enabled/disabled<br>
-	 individually. However enabling/disabling them may take some time. <br>
-	So please select your start configuration. You can later change the <br>
-	configuration by running this wizard again.<br>&nbsp;
+	@po_small;noquote@ offers nearly 100 distinct packages which can be individually<br>
+	enabled or disabled. Please select your start configuration now. <br>
+	You can change the configuration at any time by running this wizard again.<br>&nbsp;
 	</p>
 	
 </td></tr>
@@ -24,8 +23,7 @@
   <td colspan=2>
 	<b>Simplified System</b><br>
 	Install only essential packages.<br>
-	This option is useful for first time @po;noquote@ users and users
-	who don't want to be confused by the system.
+	This option is useful for first time @po;noquote@ users.
 	<br>&nbsp;
   </td>
 </tr>
@@ -34,7 +32,7 @@
   <td><input type=radio name=features value=frequently_used <if @features@ eq "frequently_used">checked</if>></td>
   <td colspan=2>
 	<b>Default System</b><br>
-	Install frequently used packages and disables less 
+	Install frequently used packages and disable less 
 	frequently used extensions.<br>&nbsp;
   </td>
 </tr>
@@ -44,9 +42,6 @@
   <td colspan=2>
 	<b>Complete / Full Installation</b><br>
 	Install everything.<br>
-	This option is useful if you are checking for specific
-	features/ options for your organization or if you want to
-	enable/ disable features yourself.
 	<br>&nbsp;
   </td>
 </tr>

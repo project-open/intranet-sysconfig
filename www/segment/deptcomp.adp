@@ -49,7 +49,7 @@
   <td><input type=radio name=deptcomp value=sme <if @deptcomp@ eq "sme">checked</if>></td>
   <td colspan=2>
 	<b>Small or Medium Enterprise (SME)</b><br>
-	My company is a SME with 3-3000 employees.<br>
+	My company is an SME with 3-3000 employees.<br>
 	We need to export @po_short;noquote@ financial information to our accounting system.
 	<br>&nbsp;
   </td>

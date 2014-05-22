@@ -705,8 +705,8 @@ ns_write "done\n"
 
 
 ns_write "<p>&nbsp;</p><hr><p>&nbsp;</p>\n"
-ns_write "<h1>Successfully Configured Your Server</h1>\n"
-ns_write "<blockquote><b>Please <a href='/acs-admin/server-restart'>Restart your server now</a></b>.</blockquote>\n"
+ns_write "<h1>Configuration Successful</h1>\n"
+ns_write "<blockquote><b>Please <a href='/acs-admin/server-restart'>restart your server now</a></b>.</blockquote>\n"
 ns_write "<p>&nbsp;</p>\n"
 
 

@@ -10,7 +10,7 @@
 <h2>Organization Logo</h2>
 
 <p>
-You can configure @po;noquote@ to show your company logo. 
+You can configure @po;noquote@ to show your logo. 
 </p><br>
 
 <p>
@@ -19,7 +19,7 @@ You can configure @po;noquote@ to show your company logo.
 
 <br>
 <p>
-You can also enter the url address of your company website.
+You can also enter your corporate URL.
 </p><br>
 <input type=text name=logo_url value=@logo_url@ size=40>
 </p>

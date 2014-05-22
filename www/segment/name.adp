@@ -11,16 +11,15 @@
 
 <p>
 Please enter your organization name. This name appears in emails,<br>
-invoices and other legal documents. Example: "ABC Consulting, Inc."
+invoices and other financial documents. Example: "ABC Consulting, Inc."
 </p><br>
 <p>
 <input type=text name=name_name value=@name_name@ size=40>
 </p>
 
 <p>
-Please enter the email of the "application owner", that is the person<br>
-in charge of @po;noquote@. This email address appears in the <br>
-"Contact" footer at every page. Please see below for an example.
+Please enter the email of the support team in charge of @po;noquote@.<br>
+This email appears in the "Contact" footer of every page.
 </p><br>
 <p>
 <input type=text name=name_email value=@name_email@ size=40>

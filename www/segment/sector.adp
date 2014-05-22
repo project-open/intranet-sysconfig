@@ -11,15 +11,14 @@
 <tr><td colspan=3>
 
 	<p>
-	The following pages allow you to select a variant of @po;noquote@ 
-	that suits your needs.
-	You can reverse later any of the settings on this page without
-	reinstallation or reboot.
+	The following pages allow you to configure @po;noquote@ 
+	according to your needs. You can change these settings at 
+	any time without rebooting or reinstalling the system.
 	</p>
 	
 	<p>
-	My organization (department or company) provides services in the
-	area of:
+	My department/company provides services in the
+	following areas:
 	</p>
 
 </td></tr>
@@ -56,8 +55,8 @@
 <tr valign=top>
   <td><input type=radio name=sector value=advertizing <if @sector@ eq "advertizing">checked</if>></td>
   <td colspan=2>
-	<b>Advertizing &amp; Web Development</b><br>
-	Advertizing or Interactive Media development...
+	<b>Advertising &amp; Web Development</b><br>
+	Advertising or Interactive Media Development...
   </td>
 </tr>
 
@@ -77,7 +76,7 @@
   </td>
   <td>
 	<b>Other / Everything</b><br>
-	None of the above fits my organization. Please install everything.
+	None of the above fits my company or department. Please install everything.
 	
   </td>
 </tr>

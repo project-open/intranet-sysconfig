@@ -13,15 +13,14 @@
 <tr><td colspan=3>
 
 	<p>
-	@po_short;noquote@ can be adapted to different <i>organization sizes</i>.
+	@po_short;noquote@ can be adapted to different organization sizes.
 	</p>
 	
 	<p>
 	Organization size refers to full-time members inside your core organization
-	that are going to use @po_short;noquote@ every day. <br>
+	that are going to use @po_short;noquote@ every day.
 	Please don't include external users 
-	such as vendors, freelancers, customer or users of other departments that might peek
-	into the system from time to time.
+	such as vendors, freelancers, customers or other occasional users.
 	
 	<p>
 	My "core" organization consists of:<br>&nbsp;
