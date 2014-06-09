@@ -38,7 +38,7 @@ dynfield_widgets;1;Define Custom Widgets;/intranet-dynfield/widgets;how_to_creat
 
 
 financial_configuration;0;Financial Configuration;;;You only need this section if you are going to use $po for invoicing and other financial operations.
-default_currency;1;System Default Currency;/shared/parameters?package_id=$package_intranet_cost;configuration_language_date_currency#set_currency;Please modify the parameter 'DefaultCurrency' in order to set the system's default (EUR, USD, …) that is used across the financial system.
+default_currency;1;System Default Currency;/shared/parameters?package_id=$package_intranet_cost;configuration_language_date_currency#set_currency;Please modify the parameter 'DefaultCurrency' in order to set the system's default (EUR, USD, ...) that is used across the financial system.
 materials;1;Review Materials (Service Types);/intranet-material/index;page_intranet_material_index;Materials are the key to determine the price of services billed to a customer. Here you can define your organization's services.
 invoice_templates;1;Invoice Templates;/intranet/admin/templates/index;configuration_financial_documents;Please review the templates used to render invoices and other financial documents. This is important if you want to send out invoices to your customers directly from $po.
 cost_centers;1;Configure Departments and Cost Centers;/intranet-cost/cost-centers/index;page_intranet_cost_cost_centers_index;Define your department and cost center hierarchy. Please read about the 'Cost Center Code' in the help section.
