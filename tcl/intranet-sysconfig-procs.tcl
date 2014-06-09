@@ -161,8 +161,15 @@ ad_proc -public im_sysconfig_admin_guide {
 	# Replace quoted (double) quotes by simple quotes
 	regsub -all {"""} $desc "\"" desc
 	regsub -all {""} $desc "\"" desc
+	regsub -all {\[} $desc "\\\[" desc
+	regsub -all {\]} $desc "\\\]" desc
+
 	regsub -all {"""} $title "\"" title
 	regsub -all {""} $title "\"" title
+
+
+	set cmd "set desc \"$desc\""
+	eval $cmd
 
 	if {[lsearch $items_done $label] >= 0} {
 	    # The label is in the list of already processed items
