@@ -6,6 +6,8 @@
 
 <h2>@page_title@</h2>
 
+<p style="color: red">If login fails with "Distinguished Name" try the users "Principle Name" (e-mail address format: username@domainname.com) </p>
+
 <input type=hidden name=ip_address value="@ip_address;noquote@">
 <input type=hidden name=port value="@port;noquote@">
 <input type=hidden name=ldap_type value="@ldap_type;noquote@">
