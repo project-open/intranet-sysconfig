@@ -54,6 +54,11 @@ if ("ad" ne $ldap_type && "ol" ne $ldap_type) {
 
 my $ldap = Net::LDAP->new($ip_address, port=>$port, timeout=>$timeout) or die "$@";
 
+
+# 20140904 fraber: Enable this to go for LDAPS
+# my $m11 = $ldap->start_tls(verify => 'none');
+
+
 my $mesg = "";
 if ("anonymous" eq $binddn) {
     $mesg = $ldap->bind();
