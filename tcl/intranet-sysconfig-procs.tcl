@@ -179,7 +179,7 @@ ad_proc -public im_sysconfig_admin_guide {
 	set link_html "<a href='$link' target='_blank'><b>$title</b></a>"
 	if {"" == $link} { set link_html "<b>$title</b>" }
 
-	set help_html "<a href='$help_site/$help' target='_blank' >[im_gif help $title]</a>"
+	set help_html "<a href='$help_site/$help' target='_blank' >[im_gif -translate_p 0 help $title]</a>"
 	if {"" == $help} { set help_html "" }
 
 	if {$indent > 0} {
