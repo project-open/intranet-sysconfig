@@ -25,7 +25,6 @@ ad_page_contract {
     { group_map "" }
 }
 
-
 switch $ldap_type {
     ad {
 	# Set a simple mapping of Active Directory groups to 

@@ -65,7 +65,7 @@ array set result_hash [im_sysconfig_create_edit_authority \
 		 -parameters [array get param_hash] \
 		]
 
-set auth_id $result_hash(auth_id)
+set authority_id $result_hash(auth_id)
 set create_p $result_hash(create_p)
 
 # ---------------------------------------------------------------

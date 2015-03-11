@@ -67,11 +67,10 @@ set group_map [array get group_map_hash]
 #
 set param_hash(GroupMap) $group_map
 
-set auth_id [im_sysconfig_create_edit_authority \
-		 -authority_name "LDAP $authority_name" \
-		 -parameters [array get param_hash] \
-		]
 
+im_sysconfig_create_edit_authority \
+    -authority_name "LDAP $authority_name" \
+    -parameters [array get param_hash]
 
 # ---------------------------------------------------------------
 # Import stuff
@@ -86,6 +85,7 @@ set params(SystemBindPW) $system_bindpw
 set params(ServerType) $ldap_type
 set params(GroupMap) $group_map
 
+# Import individual users
 array set result_hash [auth::ldap::batch_import::import_users [array get params] $authority_id]
 set result $result_hash(result)
 set debug $result_hash(debug)
