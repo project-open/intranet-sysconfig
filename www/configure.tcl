@@ -239,11 +239,11 @@ if {!$install_consulting_p} {
 
     # ToDo
     ns_write "<li>Disabling 'Consulting' Categories ... "
-    set project_type_consulting_id [db_string t "select category_id from im_categories where category = 'Consulting Project'"]
+    set project_type_gantt_id [db_string t "select category_id from im_categories where category = 'Gantt Project'"]
     catch {db_dml disable_trans_cats "
 	update im_categories 
 	set enabled_p = 'f'
-	where category_id in ([join [im_sub_categories -include_disabled_p 1 $project_type_consulting_id] ","])
+	where category_id in ([join [im_sub_categories -include_disabled_p 1 $project_type_gantt_id] ","])
     "}  err
     ns_write "done<br><pre>$err</pre>\n"
   
@@ -251,7 +251,7 @@ if {!$install_consulting_p} {
     catch {db_dml disable_trans_cats "
 	update im_projects
 	set project_status_id = [im_project_status_deleted]
-	where project_type_id in ([join [im_sub_categories -include_disabled_p 1 $project_type_consulting_id] ","])
+	where project_type_id in ([join [im_sub_categories -include_disabled_p 1 $project_type_gantt_id] ","])
     "}  err
     ns_write "done<br><pre>$err</pre>\n"
 
