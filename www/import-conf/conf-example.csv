@@ -1596,6 +1596,7 @@
 "intranet-ganttproject";"parameter";"GanttProjectThumbnailSize";"360x360";
 "intranet-ganttproject";"parameter";"GanttProjectType";"Consulting Project";
 "intranet-ganttproject";"portlet";"Gantt Resourcs";"t";
+"intranet-ganttproject";"portlet";"Gantt Resources";"t";
 "intranet-ganttproject";"portlet";"Gantt Schedule";"t";
 "intranet-ganttproject";"portlet";"Project GanttProject Component";"t";
 "intranet-helpdesk";"menu";"helpdesk";"t";
