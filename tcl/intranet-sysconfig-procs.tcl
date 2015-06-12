@@ -46,7 +46,7 @@ ad_proc -public im_sysconfig_component { } {
 
 	<p>
 	This software has been developed by $po<br>
-	(<a href=http://www.project-open.org/>http://www.project-open.org/</a>) 
+	(<a href=http://www.project-open.com/>http://www.project-open.com/</a>) 
 	based on the work of <br>
 	several open-source projects and other contributors.
 	</p>
@@ -115,7 +115,7 @@ ad_proc -public im_sysconfig_admin_guide {
     set title "Guide to $po Configuration"
     set main_menu_id [im_menu_id_from_label "main"]
     set return_url [im_url_with_query]
-    set help_site "http://www.project-open.org/en"
+    set help_site "http://www.project-open.com/en"
     set pageroot [ns_info pageroot]
     set serverroot [join [lrange [split $pageroot "/"] 0 end-1] "/"]
     set package_intranet_core [db_string cost "select min(package_id) from apm_packages where package_key = 'intranet-core'" -default ""]

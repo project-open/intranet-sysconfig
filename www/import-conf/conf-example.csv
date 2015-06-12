@@ -1325,7 +1325,7 @@
 "intranet-core";"parameter";"SubprojectStatusFilteringEnabledP";"0";
 "intranet-core";"parameter";"SystemCSS";"";
 "intranet-core";"parameter";"SystemLogo";"/logo.gif";
-"intranet-core";"parameter";"SystemLogoLink";"http://www.project-open.org/";
+"intranet-core";"parameter";"SystemLogoLink";"http://www.project-open.com/";
 "intranet-core";"parameter";"SystemNavbarGifPath";"navbar_default";
 "intranet-core";"parameter";"TarCmd";"/bin/tar";
 "intranet-core";"parameter";"TestDemoDevServer";"0";

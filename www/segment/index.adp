@@ -9,7 +9,7 @@
 
 <p>
 This software has been developed by @po;noquote@<br>
-(<a href=http://www.project-open.org/>http://www.project-open.org/</a>) 
+(<a href=http://www.project-open.com/>http://www.project-open.com/</a>) 
 based on the work of <br>
 several open-source projects and other contributors.
 </p>
