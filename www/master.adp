@@ -6,7 +6,7 @@
 <thead>
 <tr><td class=tableheader>
 
-	<table cellpadding=0 cellspacing=0 width='100%'>
+	<table cellpadding=0 cellspacing=0 width="100%">
 	<tr>
 	    <td class=tableheader width=25>
 		<%= [im_gif "arrow_comp_minimize"] %>

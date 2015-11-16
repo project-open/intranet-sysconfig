@@ -4,7 +4,7 @@
 
 
 <form action="config-2" method=POST>
-<table cellpadding=0 cellspacing=0 border=0 width=100%>
+<table cellpadding=0 cellspacing=0 border=0 width="100%">
 <tr class=rowtitle valign=top>
   <td class=rowtitle colspan=2>@page_title@</td>
 </tr>
