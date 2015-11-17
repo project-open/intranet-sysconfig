@@ -34,7 +34,7 @@ if {"" == $config_file} {
     # Manual file upload:
     # Get the file from the user.
     # number_of_bytes is the upper-limit
-    set max_n_bytes [ad_parameter -package_id [im_package_filestorage_id] MaxNumberOfBytes "" 0]
+    set max_n_bytes [im_parameter -package_id [im_package_filestorage_id] MaxNumberOfBytes "" 0]
     set config_file [ns_queryget upload_file.tmpfile]
     im_security_alert_check_tmpnam -location "import-conf-2.tcl" -value $config_file
     if { $max_n_bytes && ([file size $config_file] > $max_n_bytes) } {
