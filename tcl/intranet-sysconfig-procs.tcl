@@ -100,7 +100,7 @@ ad_proc -public im_sysconfig_admin_guide {
     @param show_items {"open","all"}
 } {
     # Only show to administrators
-    set user_id [ad_get_user_id]
+    set user_id [ad_conn user_id]
     set user_is_admin_p [im_is_user_site_wide_or_intranet_admin $user_id]
     if {!$user_is_admin_p} { return "" }
 
