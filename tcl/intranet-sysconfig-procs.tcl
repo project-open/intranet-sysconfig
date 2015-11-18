@@ -203,7 +203,7 @@ ad_proc -public im_sysconfig_admin_guide {
     set html "
 	<style>.fullwidth-list .component table.taskboard td { vertical-align:top; } </style>
 	<form action='/intranet-sysconfig/admin-guide/admin-guide-action.tcl'>
-	[export_form_vars return_url]
+	[export_vars -form {return_url}]
 	<table class=taskboard>
 	<tr><td colspan=2>
 		<h2>$po Services</h2>
