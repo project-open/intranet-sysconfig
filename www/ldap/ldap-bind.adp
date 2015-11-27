@@ -1,20 +1,20 @@
 <master src="master">
-<property name="title">@page_title@</property>
-<property name="enable_prev_p">@enable_prev_p@</property>
-<property name="enable_test_p">@enable_test_p@</property>
-<property name="enable_next_p">@enable_next_p@</property>
+<property name="doc(title)">@page_title;literal@</property>
+<property name="enable_prev_p">@enable_prev_p;literal@</property>
+<property name="enable_test_p">@enable_test_p;literal@</property>
+<property name="enable_next_p">@enable_next_p;literal@</property>
 
 <h2>@page_title@</h2>
 
 <p style="color: red">If login fails with "Distinguished Name" try the users "Principle Name" (e-mail address format: username@domainname.com) </p>
 
-<input type=hidden name=ip_address value="@ip_address;noquote@">
-<input type=hidden name=port value="@port;noquote@">
-<input type=hidden name=ldap_type value="@ldap_type;noquote@">
-<input type=hidden name=domain value="@domain;noquote@">
-<input type=hidden name=authority_id value="@authority_id@">
-<input type=hidden name=authority_name value="@authority_name@">
-<input type=hidden name=group_map value="@group_map;noquote@">
+<input type="hidden" name="ip_address" value="@ip_address;noquote@">
+<input type="hidden" name="port" value="@port;noquote@">
+<input type="hidden" name="ldap_type" value="@ldap_type;noquote@">
+<input type="hidden" name="domain" value="@domain;noquote@">
+<input type="hidden" name="authority_id" value="@authority_id@">
+<input type="hidden" name="authority_name" value="@authority_name@">
+<input type="hidden" name="group_map" value="@group_map;noquote@">
 
 <table>
 <tr>
@@ -38,11 +38,11 @@
 </tr>
 <tr>
 <td>BindDN<br>(username):</td>
-<td><input type=text name=system_binddn size=50 value='@system_binddn;noquote@'></td>
+<td><input type="text" name="system_binddn" size="50" value='@system_binddn;noquote@'></td>
 </tr>
 <tr>
 <td>BindPassword:</td>
-<td><input type=text name=system_bindpw size=20 value='@system_bindpw;noquote@'></td>
+<td><input type="text" name="system_bindpw" size="20" value='@system_bindpw;noquote@'></td>
 </tr>
 </table>
 

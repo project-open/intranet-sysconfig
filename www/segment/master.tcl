@@ -31,7 +31,7 @@ ad_page_contract {
 # Constants
 # ---------------------------------------------------------------
 
-set current_user_id [ad_maybe_redirect_for_registration]
+set current_user_id [auth::require_login]
 set user_is_admin_p [im_is_user_site_wide_or_intranet_admin $current_user_id]
 if {!$user_is_admin_p} {
     ad_return_complaint 1 "<li>[_ intranet-core.lt_You_need_to_be_a_syst]"
@@ -75,7 +75,7 @@ foreach p $pages {
 
 set url [ad_conn url]
 set url_pieces [split $url "/"]
-set url_last_piece [lindex $url_pieces [expr [llength $url_pieces]-1]]
+set url_last_piece [lindex $url_pieces [llength $url_pieces]-1]
 set page $url_last_piece
 
 # ---------------------------------------------------------------
@@ -83,7 +83,7 @@ set page $url_last_piece
 # ---------------------------------------------------------------
 
 set tmp_filename [ns_queryget logo_file.tmpfile]
-if {![empty_string_p $tmp_filename] 
+if {$tmp_filename ne "" 
 } { 
     file copy -force $tmp_filename [acs_root_dir]/www/sysconf-logo.tmp
 }
@@ -116,8 +116,8 @@ switch $page {
     }
 }
 
-set prev_page [lindex $pages [expr $index-1]]
-set next_page [lindex $pages [expr $index+1]]
+set prev_page [lindex $pages $index-1]
+set next_page [lindex $pages $index+1]
 
 set prev_link "<input type=button class=button name=prev value='&lt;&lt; Prev'
 	onClick=\"window.document.wizard.action='$prev_page'; submit();\" 

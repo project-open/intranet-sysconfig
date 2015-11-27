@@ -3,14 +3,14 @@
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <master src="master">
-<property name="title">System Configuration Wizard</property>
+<property name="doc(title)">System Configuration Wizard</property>
 
 
 <h2>Size of Your Organization</h2>
 
 
-<table border=0 width="80%">
-<tr><td colspan=3>
+<table border="0" width="80%">
+<tr><td colspan="3">
 
 	<p>
 	@po_short;noquote@ can be adapted to different organization sizes.
@@ -27,36 +27,36 @@
 	</p>
 
 </td></tr>
-<tr valign=top>
-  <td width="30"><input type=radio name=orgsize value=one <if @orgsize@ eq "one">checked</if>></td>
-  <td colspan=2>
+<tr valign="top">
+  <td width="30"><input type="radio" name="orgsize" value="one" <if @orgsize@ eq "one">checked</if>></td>
+  <td colspan="2">
 	<b>One hierarchical level</b><br> 
 	3-15 full-time members including support & financial staff
 	<br>&nbsp;
   </td>
 </tr>
 
-<tr valign=top>
-  <td><input type=radio name=orgsize value=two <if @orgsize@ eq "two">checked</if>></td>
-  <td colspan=2>
+<tr valign="top">
+  <td><input type="radio" name="orgsize" value="two" <if @orgsize@ eq "two">checked</if>></td>
+  <td colspan="2">
 	<b>Two hierarchical levels</b><br>
 	15-80 full-time members including support & financial staff
 	<br>&nbsp;
   </td>
 </tr>
 
-<tr valign=top>
-  <td><input type=radio name=orgsize value=three <if @orgsize@ eq "three">checked</if>></td>
-  <td colspan=2>
+<tr valign="top">
+  <td><input type="radio" name="orgsize" value="three" <if @orgsize@ eq "three">checked</if>></td>
+  <td colspan="2">
 	<b>Three hierarchical levels</b><br>
 	80-600 full-time members including support & financial staff
 	<br>&nbsp;
   </td>
 </tr>
 
-<tr valign=top>
-  <td><input type=radio name=orgsize value=four <if @orgsize@ eq "four">checked</if>></td>
-  <td colspan=2>
+<tr valign="top">
+  <td><input type="radio" name="orgsize" value="four" <if @orgsize@ eq "four">checked</if>></td>
+  <td colspan="2">
 	<b>Four hierarchical levels</b><br>
 	600-3000 full-time members including support & financial staff<br>
 	<br>&nbsp;

@@ -3,9 +3,9 @@
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <master src="master">
-<property name="title">System Configuration Wizard - Trust Model</property>
+<property name="doc(title)">System Configuration Wizard - Trust Model</property>
 
-<input type=hidden name=profiles value=1>
+<input type="hidden" name="profiles" value="1">
 
 <h2>Trust Model</h2>
 
@@ -16,10 +16,10 @@ or modify. Please do the same for your "Project Managers".<br>
 <p>
 <table>
 <tr>
-  <td align=center></td>
-  <td align=center><%=[lang::message::lookup "" "intranet-sysconfig.profiles_all_projects" all_projects]%></td>
-  <td align=center><%=[lang::message::lookup "" "intranet-sysconfig.profiles_all_companies" all_companies]%></td>
-  <td align=center><%=[lang::message::lookup "" "intranet-sysconfig.profiles_finance" finance]%></td>
+  <td align="center"></td>
+  <td align="center"><%=[lang::message::lookup "" "intranet-sysconfig.profiles_all_projects" all_projects]%></td>
+  <td align="center"><%=[lang::message::lookup "" "intranet-sysconfig.profiles_all_companies" all_companies]%></td>
+  <td align="center"><%=[lang::message::lookup "" "intranet-sysconfig.profiles_finance" finance]%></td>
 </tr>
 
 <% foreach i [list employees project_managers senior_managers] { %>
@@ -35,9 +35,9 @@ or modify. Please do the same for your "Project Managers".<br>
 
     if { $i=="senior_managers" } {
 %>
-<td align=center><input type=checkbox name="profiles_array.<%=$i,$j%>" checked disabled=1></td>
+<td align="center"><input type="checkbox" name="profiles_array.<%=$i,$j%>" checked disabled=1></td>
 <% } else { %>
-<td align=center><input type=checkbox name="profiles_array.<%=$i,$j%>" <%=$check%>></td>
+<td align="center"><input type="checkbox" name="profiles_array.<%=$i,$j%>" <%=$check%>></td>
 <% } } %>
 </tr>
 <% } %>
@@ -48,8 +48,8 @@ or modify. Please do the same for your "Project Managers".<br>
 <p>
 
 <table>
-<tr valign=top><td>
-	<table border=1 cellspacing=0 cellpadding=0>
+<tr valign="top"><td>
+	<table border="1" cellspacing="0" cellpadding="0">
 	<tr><td>&nbsp;x&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
 	<tr><td>&nbsp;x&nbsp;</td><td>&nbsp;x&nbsp;</td><td>&nbsp;</td></tr>
 	<tr><td>&nbsp;x&nbsp;</td><td>&nbsp;x&nbsp;</td><td>&nbsp;x&nbsp;</td></tr>
@@ -67,8 +67,8 @@ or modify. Please do the same for your "Project Managers".<br>
 
 
 <table>
-<tr valign=top><td>
-	<table border=1 cellspacing=0 cellpadding=0>
+<tr valign="top"><td>
+	<table border="1" cellspacing="0" cellpadding="0">
 	<tr><td>&nbsp;x&nbsp;</td><td>&nbsp;x&nbsp;</td><td>&nbsp;</td></tr>
 	<tr><td>&nbsp;x&nbsp;</td><td>&nbsp;x&nbsp;</td><td>&nbsp;x&nbsp;</td></tr>
 	<tr><td>&nbsp;x&nbsp;</td><td>&nbsp;x&nbsp;</td><td>&nbsp;x&nbsp;</td></tr>

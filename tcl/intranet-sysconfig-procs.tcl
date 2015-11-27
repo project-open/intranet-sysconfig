@@ -278,7 +278,7 @@ ad_proc -public im_sysconfig_load_configuration { file } {
     Reads the content of the configuration file and applies the
     configuration to the current server.
 } {
-    set current_user_id [ad_maybe_redirect_for_registration]
+    set current_user_id [auth::require_login]
 
     set csv_files_content [fileutil::cat $file]
     set csv_files [split $csv_files_content "\n"]

@@ -18,7 +18,7 @@ ad_page_contract {
 # Frequently used variables
 # ---------------------------------------------------------------
 
-set current_user_id [ad_maybe_redirect_for_registration]
+set current_user_id [auth::require_login]
 set user_is_admin_p [im_is_user_site_wide_or_intranet_admin $current_user_id]
 if {!$user_is_admin_p} {
     ad_return_complaint 1 "<li>[_ intranet-core.lt_You_need_to_be_a_syst]"
@@ -41,7 +41,7 @@ for {set i 0} {$i < [ns_set size $myset]} {incr i} {
     set value [ns_set value $myset $i]
 
     set var_key [lindex [split $key "."] 0]
-    if {$var_key != "profiles_array"} { continue }
+    if {$var_key ne "profiles_array"} { continue }
 
     set var_value [lindex [split $key "."] 1]
     set profiles_array($var_value) $value

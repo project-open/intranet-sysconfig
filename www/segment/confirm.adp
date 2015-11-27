@@ -3,20 +3,20 @@
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <master src="master">
-<property name="title">Confirm your Configuration</property>
+<property name="doc(title)">Confirm your Configuration</property>
 
 <h2>Confirm your Configuration</h2>
 
-<table border=0 width="80%">
+<table border="0" width="80%">
 
 <if @ready@>
 
-<tr><td colspan=3>
+<tr><td colspan="3">
 
 	<p>Please read the latest release notes:
 	</p>
 
-	<iframe src="@iframe_url;noquote@" width="90%" height="200" name="Release Notes">
+	<iframe src="@iframe_url@" width="90%" height="200" name="Release Notes">
   <p>No IFrames supported...</p>
 </iframe>
 
@@ -24,7 +24,7 @@
 	</p>
 
 	<blockquote>
-	<input type=button value='Start Configuration Process'
+	<input type="button" value='Start Configuration Process'
 	onClick="window.document.wizard.action='/intranet-sysconfig/configure'; submit();" 
 	title='Confirm' alt='Confirm'>
 	</blockquote
@@ -33,7 +33,7 @@
 </if>
 <else
 
-    <tr><td colspan=3>
+    <tr><td colspan="3">
 
 	<p>&nbsp;
 	<p>&nbsp;</p>
