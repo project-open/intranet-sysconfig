@@ -111,10 +111,8 @@ ns_write "<li>setting url ... "
 parameter::set_from_package_key -package_key "acs-kernel" -parameter "SystemURL" -value "http://[ad_host]:[ad_port]/" 
 ns_write "done<br>\n"
 
-if { $logo_file ne ""
-} {
+if {$logo_file ne ""} {
     ns_write "<li>setting logo... "
-
     set logo_path logo[file extension $logo_file]
     catch {
 	file rename -force [acs_root_dir]/www/sysconf-logo.tmp [acs_root_dir]/www/$logo_path
