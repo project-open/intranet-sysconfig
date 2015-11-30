@@ -1,3 +1,4 @@
+<%      if {![info exists title] && [info exists doc(title)]} { set title $doc(title) } %>
 <%= [im_header "[lang::message::lookup "" intranet-sysconfig.SysConfig_Wizard "SysConfig Wizard:"] $title"] %>
 <%= [im_navbar "admin"] %>
 
