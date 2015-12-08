@@ -31,6 +31,8 @@ if {!$user_is_admin_p} {
 }
 
 set base_url "/intranet-sysconfig/segment"
+if {[info exists doc(title)]} { set title $doc(title) }
+
 
 # Define Wizard params
 set pages [list index ldap-ip-port ldap-type-domain ldap-bind ldap-authority ldap-authority2 ldap-group-map ldap-import]
