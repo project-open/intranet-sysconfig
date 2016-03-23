@@ -109,15 +109,13 @@ ad_proc -public im_sysconfig_admin_guide {
     set base_config_wizard_enabled_p [db_string base_en "select enabled_p from im_component_plugins where plugin_name = 'System Configuration Wizard'" -default ""]
     if {"t" == $base_config_wizard_enabled_p} { return "" }
 
-
     set po "<span class=brandsec>&\#93;</span><span class=brandfirst>po</span><span class=brandsec>&\#91;</span>"
     set project_open "<span class=brandsec>&\#93;</span><span class=brandfirst>project-open</span><span class=brandsec>&\#91;</span>"
     set title "Guide to $po Configuration"
     set main_menu_id [im_menu_id_from_label "main"]
     set return_url [im_url_with_query]
     set help_site "http://www.project-open.com/en"
-    set pageroot [ns_info pageroot]
-    set serverroot [join [lrange [split $pageroot "/"] 0 end-1] "/"]
+    set serverroot [acs_root_dir]
     set package_intranet_core [db_string cost "select min(package_id) from apm_packages where package_key = 'intranet-core'" -default ""]
     set package_intranet_cost [db_string cost "select min(package_id) from apm_packages where package_key = 'intranet-cost'" -default ""]
     set internal_company_id [db_string internal_company "select min(company_id) from im_companies where company_path = 'internal'" -default ""]

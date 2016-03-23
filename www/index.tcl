@@ -28,8 +28,7 @@ if {!$user_is_admin_p} {
 }
 
 # Determine the template
-set pageroot [ns_info pageroot]
-set serverroot [join [lrange [split $pageroot "/"] 0 end-1] "/"]
+set serverroot [acs_root_dir]
 set find_cmd [im_filestorage_find_cmd]
 if {"" == $return_url} { set return_url [im_url_with_query] }
 
