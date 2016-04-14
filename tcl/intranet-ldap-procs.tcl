@@ -150,7 +150,7 @@ ad_proc -public im_sysconfig_create_edit_authority {
 
     # Basic Information
     set auth_hash(pretty_name) $authority_name
-    set auth_hash(short_name) ""
+    set auth_hash(short_name) $authority_name
     set auth_hash(enabled_p) "t"
     
     # Implementation of authentication Service Contracts
