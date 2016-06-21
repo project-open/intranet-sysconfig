@@ -53,6 +53,14 @@ set po "<span class=brandsec>&\#93;</span><span class=brandfirst>project-open</s
 
 
 # ---------------------------------------------------------------
+# Check if auth-ldap-adldapsearch has been installed
+# ---------------------------------------------------------------
+
+
+set installed_p [db_string installed "select count(*) from apm_package_versions where package_key = 'auth-ldap-adldapsearch' and enabled_p = 't'"]
+
+
+# ---------------------------------------------------------------
 # Control the display for prev - test - next buttons
 # ---------------------------------------------------------------
 
