@@ -1,10 +1,5 @@
 <master src="master">
 <property name="doc(title)">@page_title;literal@</property>
-<h2>@page_title@</h2>
-<p>
-This wizard will help you to identify and connect to<br>
-a corporate LDAP server including Microsoft Active<br>
-Directory or OpenLDAP.<br>
 
 <if @installed_p@ lt 1>
 <font color=red>
@@ -16,6 +11,11 @@ Starting with ]po[ V5.0, this driver is only available as part of the <br>
 </font>
 </if>
 
+<h2>@page_title@</h2>
+<p>
+This wizard will help you to identify and connect to<br>
+a corporate LDAP server including Microsoft Active<br>
+Directory or OpenLDAP.<br>
 
 <h2>IP Address of the LDAP Server</h2>
 
