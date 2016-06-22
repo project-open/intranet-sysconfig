@@ -50,19 +50,30 @@ ad_proc -public im_sysconfig_component { } {
 	based on the work of <br>
 	several open-source projects and other contributors.
 	</p>
-<table cellpadding=2>
-<tr><td>Novell/SuSE</td>	<td>http://www.novell.com/licensing/eula/suse_pro_93.pdf</td></tr>
-<tr><td>&\#93;project-open&\#91;</td>	<td>http://www.project-open.com/license/</td></tr>
-<tr><td>AOLserver</td>		<td>http://www.aolserver.com/license/</td></tr>
-<tr><td>OpenACS</td>		<td>http://openacs.org/about/licensing/</td></tr>
-<tr><td>VMWare Tools</td>	<td>http://www.vmware.com/support/</td></tr>
-</table>
+	<table cellpadding=2>
+	<tr>
+		<td>CentOS</td>	
+		<td>https://www.centos.org/</td>
+	</tr>
+	<tr>
+		<td>&\#93;project-open&\#91;</td>	
+		<td>http://www.project-open.com/en/project-open-license</td>
+	</tr>
+	<tr>
+		<td>NaviServer</td>		
+		<td>https://www.mozilla.org/en-US/MPL/1.1/</td>
+	</tr>
+	<tr>
+		<td>OpenACS</td>		
+		<td>http://openacs.org/about/licensing/</td>
+	</tr>
+	<tr>
+		<td>VMWare Tools</td>	
+		<td>http://www.vmware.com/support/</td>
+	</tr>
+	</table>
 
-	<p>
-	By using this software, you are agreeing with the author's licensing
-        terms.
-	</p>
-
+	<p>By using this software, you are agreeing with the author's licensing terms.</p>
 "
 
     set progress "
@@ -190,7 +201,11 @@ ad_proc -public im_sysconfig_admin_guide {
 	    if { 0 != $ctr  } {	append html "</div>" }
 	    append html "
 		<span id=\"q_$ctr\">
-			<h2 style=\"text-decoration:underline; cursor: hand; cursor: pointer;margin-bottom:4px;\">$link_html</h2>$desc
+			<div style='margin-left: 30px;'>
+				<div style='float: right;width: 100%;'><h2 style=\"text-decoration:underline;cursor:hand;cursor:pointer;margin-bottom:4px;\">$link_html</h2>$desc</div>
+				<div id=\"gr_$ctr\" style='float: left;width: 20px;margin-left:-30px;margin-top: 18px;cursor:hand;cursor:pointer;'><img src='/intranet/images/plus_blue_15_15.gif' alt=''/></div>
+				<div style='clear: both;'></div>
+			</div>
 		</span>
 		<div id=\"a_$ctr\">
 	    "	    
@@ -202,30 +217,83 @@ ad_proc -public im_sysconfig_admin_guide {
 	<style>.fullwidth-list .component table.taskboard td { vertical-align:top; } </style>
 	<form action='/intranet-sysconfig/admin-guide/admin-guide-action.tcl'>
 	[export_vars -form {return_url}]
-	<table class=taskboard>
-	<tr><td colspan=2>
-		<h2>$po Services</h2>
-	<nobr>
-	<a href='http://www.project-open.com/en/shop/remote-training.html'><img src='/intranet/images/badges/badge_training_services.jpg' title='\]po\[ Professional Training Services'></a>
-	<a href='http://www.project-open.com/en/services/project-open-support.html'><img src='/intranet/images/badges/badge_support_services.jpg' title='\]po\[ Professional Support Services'></a>
-	<a href='http://www.project-open.com/en/services/project-open-hosting-saas.html'><img src='/intranet/images/badges/badge_hosting_saas_services.jpg' title='\]po\[ Hosting / SaaS'></a>
-	</nobr>
-		<br>&nbsp;<br>
-		$po offers a wide range of professional services in order to 
-		help you with the installation, configuration and operations of $po.
-		For free support please see our <a href='$forum_url' target='_blank'>Open Discussions Forum</a>. 
-		<br><br>
-	</td></tr>
-
-	<!--<tr><td colspan=2>
-		<select name=action1><option name=mark_as_done>Mark as done</option></select>
-		<input type=submit name=action_submit1 value=Action> <br>
-	</td></tr>-->
-	</table>
-
+<table cellpadding=\"10\" cellspacing=\"10\" border=\"0\">
+    <tr>
+        <td>
+            <table cellpadding=\"10\" cellspacing=\"10\" border=\"0\">
+                <tr>
+                    <td colspan=\"2\"><span style=\"font-size: 16px; font-weight:bold; color:#666666\">Professional Support</span></td>
+                </tr>
+                <tr>
+                    <td valign=\"top\"><img src=\"/intranet/images/conf_wizard_professional_support.png\" alt=\"\" /></td>
+                    <td valign=\"top\">The <span class=brandsec>\]</span><span class=brandfirst>project-open</span><span class=brandsec>\[</span> 
+                                       Team offers a wide range of <a href=\"http://www.project-open.com/en/services/index.html\" target=\"_blank\">professional services</a> 
+                                       in order to help you with the installation, configuration and operation of 
+                                       <span class=brandsec>\]</span><span class=brandfirst>po</span><span class=brandsec>\[<br /></span>
+                                        &nbsp;<br/>
+                                        Get in toch us to learn more using our <a href=\"http://www.project-open.com/en/company/project-open-contact.html\" target=\"_blank\">contact form</a>. 
+                    </td>
+                </tr>
+            </table>
+        </td>
+        <td>
+            <table cellpadding=\"10\" cellspacing=\"10\" border=\"0\">
+                <tr>
+                    <td colspan=\"2\"><span style=\"font-size: 16px; font-weight:bold; color:#666666\">Online Documentation</span></td>
+                </tr>
+                <tr>
+                    <td><img src=\"/intranet/images/conf_wizard_help.png\" alt=\"\"/></td>
+                    <td valign=\"top\">
+                        Comprehensive Online Documentation is available at <a href=\"http://www.project-open.com/en/\" target=\"_blank\">www.project-open.com/en/</a><br />
+                        <br />
+                        For Community Support please refer to our Forum hosted at <a href=\"https://sourceforge.net/p/project-open/discussion/295937/\" target=\"_blank\">sourceforge.net</a>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <table cellpadding=\"10\" cellspacing=\"10\" border=\"0\">
+                <tr>
+                    <td colspan=\"2\"><span style=\"font-size: 16px; font-weight:bold; color:#666666\">Professional Editions</span></td>
+                </tr>
+                <tr>
+                    <td valign=\"top\"><img src=\"/intranet/images/conf_wizard_professional_versions.png\" alt=\"\"/></td>
+                    <td valign=\"top\">
+                        Our professional editions offer features and extended support options for customers with higher demands. 
+                        <br />
+                        <br />
+                        Get an complete overview about the additional modules and services included on our PRO editions 
+                        <a href=\"http://www.project-open.com/en/products/editions.html\" target=\"_blank\">here</a>.
+                    </td>
+                </tr>
+            </table>
+        </td>
+        <td>
+            <table cellpadding=\"10\" cellspacing=\"10\" border=\"0\">
+                <tr>
+                    <td colspan=\"2\"><span style=\"font-size: 16px; font-weight:bold; color:#666666\">Saas Server</span></td>
+                </tr>
+                <tr>
+                    <td valign=\"top\"><img src=\"/intranet/images/conf_wizard_saas.png\" alt=\"\" /></td>
+                    <td valign=\"top\">
+                        Running <span class=brandsec>\]</span><span class=brandfirst>project-open</span><span class=brandsec>\[</span> 
+                        over the internet helps business owners to focus on their business activities while we handle the IT support role.
+                        <br /><br />
+                        For additional information about our SaaS offers please refer to <a href=\"http://www.project-open.com/en/services/project-open-hosting-saas.html\" target=\"_blank\">this site</a>.
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+<br/>
+<h1>Configure your system:</h1>
+<p>Click on the '+' symbol of each category to find more information and links to relevant configuration pages. </p>
      	<div id=\"q_and_a\">
 		$html
-		</div> <!-- --> closing 
+		</div> <!-- closing -->
         </div>
 	<br>
 	<table class=taskboard>	
@@ -244,10 +312,15 @@ ad_proc -public im_sysconfig_admin_guide {
     	\$(document).ready(function(){
 		\$(\"#q_and_a\").find('span\[id^=\"q_\"\]').each(function(i, obj) {
     			\$(obj).click(function() {
-				\$('#a_'+obj.id.substr(2)).slideToggle('slow', function() {
-				});
+				\$('#a_'+obj.id.substr(2)).slideToggle('slow', function() {});
+				if ( \$('\#gr_'+obj.id.substr(2)).html().indexOf('plus') > -1 ) {
+					\$('\#gr_'+obj.id.substr(2)).html(\"<img src='/intranet/images/minus_blue_15_15.gif' alt='' />\");
+				} else {
+					\$('\#gr_'+obj.id.substr(2)).html(\"<img src='/intranet/images/plus_blue_15_15.gif' alt='' />\");
+				};
     			});
 			\$('\#a_'+obj.id.substr(2)).slideToggle('slow');
+
 		});
 	});
 	</script>
