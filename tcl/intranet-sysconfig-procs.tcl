@@ -219,7 +219,7 @@ ad_proc -public im_sysconfig_admin_guide {
 	[export_vars -form {return_url}]
 <table cellpadding=\"10\" cellspacing=\"10\" border=\"0\">
     <tr>
-        <td>
+        <td valign=\"top\">
             <table cellpadding=\"10\" cellspacing=\"10\" border=\"0\">
                 <tr>
                     <td colspan=\"2\"><span style=\"font-size: 16px; font-weight:bold; color:#666666\">Professional Support</span></td>
@@ -236,13 +236,13 @@ ad_proc -public im_sysconfig_admin_guide {
                 </tr>
             </table>
         </td>
-        <td>
+        <td valign=\"top\">
             <table cellpadding=\"10\" cellspacing=\"10\" border=\"0\">
                 <tr>
                     <td colspan=\"2\"><span style=\"font-size: 16px; font-weight:bold; color:#666666\">Online Documentation</span></td>
                 </tr>
                 <tr>
-                    <td><img src=\"/intranet/images/conf_wizard_help.png\" alt=\"\"/></td>
+                    <td valign=\"top\"><img src=\"/intranet/images/conf_wizard_help.png\" alt=\"\"/></td>
                     <td valign=\"top\">
                         Comprehensive Online Documentation is available at <a href=\"http://www.project-open.com/en/\" target=\"_blank\">www.project-open.com/en/</a><br />
                         <br />
@@ -253,7 +253,7 @@ ad_proc -public im_sysconfig_admin_guide {
         </td>
     </tr>
     <tr>
-        <td>
+        <td valign=\"top\">
             <table cellpadding=\"10\" cellspacing=\"10\" border=\"0\">
                 <tr>
                     <td colspan=\"2\"><span style=\"font-size: 16px; font-weight:bold; color:#666666\">Professional Editions</span></td>
@@ -270,7 +270,7 @@ ad_proc -public im_sysconfig_admin_guide {
                 </tr>
             </table>
         </td>
-        <td>
+        <td valign=\"top\">
             <table cellpadding=\"10\" cellspacing=\"10\" border=\"0\">
                 <tr>
                     <td colspan=\"2\"><span style=\"font-size: 16px; font-weight:bold; color:#666666\">Saas Server</span></td>
