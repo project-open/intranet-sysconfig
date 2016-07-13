@@ -73,6 +73,9 @@ set params(BindDN) $binddn
 set params(SystemBindDN) $system_binddn
 set params(SystemBindPW) $system_bindpw
 set params(ServerType) $ldap_type
+if {"636" eq $port} { set params(LdapURI) "ldaps://$ip_address:$port" }
+
+
 
 array set result_hash [auth::ldap::batch_import::read_ldif_groups [array get params] $authority_id]
 set result $result_hash(result)

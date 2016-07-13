@@ -26,13 +26,14 @@ my $ip_address = "localhost";
 my $port = 389;
 my $timeout = 5;
 
-$ldap = Net::LDAP->new($ip_address, port=>$port, timeout=>$timeout) or die "$@";
-
 
 # --------------------------------------
 # Bind
 # --------------------------------------
 
+my $scheme = "ldap";
+if ("636" == $port) { $scheme = "ldaps"; }
+$ldap = Net::LDAP->new($ip_address, port=>$port, scheme=>$scheme, timeout=>$timeout) or die "$@";
 $mesg = $ldap->bind();
 # $mesg = $ldap->bind("cn=Manager,dc=whp,dc=fr", password => "welcome");
 die "Bad bind: ",$mesg->code, "\n" if $mesg->code;

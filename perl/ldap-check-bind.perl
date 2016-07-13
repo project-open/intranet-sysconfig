@@ -52,7 +52,9 @@ if ("ad" ne $ldap_type && "ol" ne $ldap_type) {
 # Try to Bind
 # --------------------------------------
 
-my $ldap = Net::LDAP->new($ip_address, port=>$port, timeout=>$timeout) or die "$@";
+my $scheme = "ldap";
+if ("636" == $port) { $scheme = "ldaps"; }
+my $ldap = Net::LDAP->new($ip_address, port=>$port, timeout=>$timeout, scheme=>$scheme) or die "$@";
 
 
 # 20140904 fraber: Enable this to go for LDAPS

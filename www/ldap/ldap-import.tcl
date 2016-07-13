@@ -84,6 +84,8 @@ set params(SystemBindDN) $system_binddn
 set params(SystemBindPW) $system_bindpw
 set params(ServerType) $ldap_type
 set params(GroupMap) $group_map
+if {"636" eq $port} { set params(LdapURI) "ldaps://$ip_address:$port" }
+
 
 # Import individual users
 array set result_hash [auth::ldap::batch_import::import_users [array get params] $authority_id]
