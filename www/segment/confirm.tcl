@@ -36,7 +36,7 @@ set sector [ns_set iget [ad_conn form] "sector"]
 # Gather information about the system:
 set core_version [im_core_version]
 set core_version_id [join [lrange [split $core_version "."] 0 2] ""]
-set platform [ns_info platform]
+set platform $::tcl_platform(platform)
 
 # Default value
 set iframe_url "http://www.project-open.net/en/install-${platform}-${core_version_id}"
@@ -46,7 +46,7 @@ switch [string tolower $platform] {
     win32 - win64 {
 	set iframe_url "http://www.project-open.net/en/install-${platform}-${core_version_id}"
     }
-    linux {
+    linux - unix {
 	set linux_distro [im_linux_distro]
 	set vmware_p [im_linux_vmware_p]
 	if {$vmware_p} {
