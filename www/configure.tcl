@@ -76,7 +76,7 @@ ns_write "<li>Enabling categories ... "
 catch {db_dml enable_categories "update im_categories set enabled_p = 't'"}  err
 ns_write "done<br><pre>$err</pre>\n"
 
-ns_write "<li>Enabling components ... "
+ns_write "<li>Enabling portlets ... "
 catch {db_dml enable_components "update im_component_plugins set enabled_p = 't'"}  err
 ns_write "done<br><pre>$err</pre>\n"
 
@@ -230,7 +230,7 @@ switch $sector {
 # Disable Consulting Stuff
 
 if {!$install_consulting_p} {
-    ns_write "<br>&nbsp;<h2>Disabling 'Consulting' Components</h2>"
+    ns_write "<br>&nbsp;<h2>Disabling 'Consulting' Portlets</h2>"
 
     # ToDo
     ns_write "<li>Disabling 'Consulting' Categories ... "
@@ -261,7 +261,7 @@ if {!$install_consulting_p} {
     "}  err
     ns_write "done<br><pre>$err</pre>\n"
 
-    ns_write "<li>Disabling 'Consulting' Components ... "
+    ns_write "<li>Disabling 'Consulting' Portlets ... "
     catch {db_dml disable_trans_cats "
 	update im_component_plugins
 	set enabled_p = 'f'
@@ -281,7 +281,7 @@ if {!$install_consulting_p} {
 # Disable Translation Stuff
 
 if {!$install_translation_p} {
-    ns_write "<br>&nbsp;<h2>Disabling 'Translation' Components</h2>\n"
+    ns_write "<br>&nbsp;<h2>Disabling 'Translation' Portlets</h2>\n"
 
     ns_write "<li>Disabling 'Translation' Categories ... "
     set project_type_translation_id [db_string t "select category_id from im_categories where category = 'Translation Project'" -default 0]
@@ -312,7 +312,7 @@ if {!$install_translation_p} {
     "}  err
     ns_write "done<br><pre>$err</pre>\n"
 
-    ns_write "<li>Disabling 'Translation' Components ... "
+    ns_write "<li>Disabling 'Translation' Portlets ... "
     catch {db_dml disable_trans_cats "
 	update im_component_plugins
 	set enabled_p = 'f'
@@ -331,7 +331,7 @@ if {!$install_translation_p} {
 
 if {!$install_itsm_p} {
 
-    ns_write "<br>&nbsp;<h2>Disabling 'ITSM' Components</h2>\n"
+    ns_write "<br>&nbsp;<h2>Disabling 'ITSM' Portlets</h2>\n"
     ns_write "<li>Disabling 'ITSM' Categories ... "
     catch {
 	db_dml disable_itsm_cats "
@@ -376,7 +376,7 @@ if {!$install_itsm_p} {
     "} err
     ns_write "done<br><pre>$err</pre>\n"
 
-    ns_write "<li>Disabling 'ITSM' Components ... "
+    ns_write "<li>Disabling 'ITSM' Portlets ... "
     catch {db_dml disable_itsm_cats "
 	update im_component_plugins
 	set enabled_p = 'f'
@@ -507,7 +507,7 @@ foreach package [array names disable] {
         "} err
 	ns_write "done<br><pre>$err</pre>\n"
 
-	ns_write "<li>Disabling '$package' Components ... "
+	ns_write "<li>Disabling '$package' Portlets ... "
 	catch {db_dml disable_trans_cats "
 		update	im_component_plugins
 		set	enabled_p = 'f'
@@ -519,18 +519,23 @@ foreach package [array names disable] {
 
 
 # ---------------------------------------------------------------
-# Disabling components
+# Disabling portlets
 # ---------------------------------------------------------------
 
-ns_write "<br>&nbsp;<h2>Disabling 'intranet-sysconfig' Components</h2>\n"
-ns_write "<li>Disabling 'intranet-sysconfig' Components ... "
+ns_write "<br>&nbsp;<h2>Disabling Portlets</h2>\n"
+ns_write "<li>Disabling 'intranet-sysconfig' Portlets ... "
+db_dml dis "update im_component_plugins set enabled_p = 'f' where plugin_name = 'System Configuration Wizard'"
 
-catch {db_dml disable_trans_cats "
-		update	im_component_plugins
-		set	enabled_p = 'f'
-		where	package_name = 'intranet-sysconfig'
-"} err
-ns_write "done<br><pre>$err</pre>\n"
+
+ns_write "<li>Disabling Home Gantt Tasks Portlets ... "
+db_dml dis "update im_component_plugins set enabled_p = 'f' where plugin_name = 'Home Gantt Tasks'"
+db_dml dis "update im_component_plugins set enabled_p = 'f' where plugin_name = 'Home Page Help Blurb'"
+db_dml dis "update im_component_plugins set enabled_p = 'f' where plugin_name = 'Home Calendar Component'"
+db_dml dis "update im_component_plugins set enabled_p = 'f' where plugin_name = ''"
+db_dml dis "update im_component_plugins set enabled_p = 'f' where plugin_name = ''"
+db_dml dis "update im_component_plugins set enabled_p = 'f' where plugin_name = ''"
+db_dml dis "update im_component_plugins set enabled_p = 'f' where plugin_name = ''"
+
 
 
 
