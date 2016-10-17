@@ -220,7 +220,7 @@ ad_proc -public im_sysconfig_admin_guide {
 <table cellpadding=\"10\" cellspacing=\"10\" border=\"0\">
     <tr>
         <td valign=\"top\">
-            <table cellpadding=\"10\" cellspacing=\"10\" border=\"0\">
+            <table cellpadding=\"5\" cellspacing=\"5\" border=\"0\">
                 <tr>
                     <td colspan=\"2\"><span style=\"font-size: 16px; font-weight:bold; color:#666666\">Professional Support</span></td>
                 </tr>
