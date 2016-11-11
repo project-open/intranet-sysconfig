@@ -49,11 +49,11 @@ switch [string tolower $platform] {
     linux - unix {
 	set linux_distro [im_linux_distro]
 	set vmware_p [im_linux_vmware_p]
-	if {$vmware_p} {
+	set iframe_url "http://www.project-open.net/en/install-${linux_distro}-${core_version_id}"
+
+	if {0 && $vmware_p} {
 	    set plaform "vm"
 	    set iframe_url "http://www.project-open.net/en/install-vm-${core_version_id}"
-	} else {
-	    set iframe_url "http://www.project-open.net/en/install-${linux_distro}-${core_version_id}"
 	}
     }
     default {
