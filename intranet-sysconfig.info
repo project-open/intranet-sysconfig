@@ -12,6 +12,7 @@
     <version name="5.0.2.0.0" url="http://www.project-open.net/download/apm/intranet-sysconfig-5.0.2.0.0.apm">
         <owner url="mailto:frank.bergmann@project-open.com">Frank Bergmann</owner>
         <summary>System Configuration Wizard</summary>
+        <release-date>2016-11-15</release-date>
         <vendor url="http://www.project-open.com/">]project-open[</vendor>
         <description format="text/plain">Wizard-based configuration of a ]po[ system for one of the different &quot;flavours&quot;. This wizard appears after a fresh installation as the only option and guides the user through the setup process.</description>
 
