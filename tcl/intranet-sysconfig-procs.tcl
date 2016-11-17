@@ -185,8 +185,10 @@ ad_proc -public im_sysconfig_admin_guide {
 	    continue
 	}
 
-	set link_html "<a href='$link' target='_blank'><b>$title</b></a>"
-	if {"" == $link} { set link_html "<b>$title</b>" }
+	set link_html "<b>$title</b>"
+
+	set config_html "<a href='$link' target='_blank'><span class=\"btn_po_small\">[lang::message::lookup "" intranet-sysconfig.Do_This_Now "Do this now"]</span></a>"
+	if {"" == $link} { set config_html "" }
 
 	set help_html "<a href='$help_site/$help' target='_blank'><span class=\"btn_po_small\">[lang::message::lookup "" intranet-core.More_Info "More Info"]</span></a>"
 	if {"" == $help} { set help_html "" }
@@ -194,7 +196,7 @@ ad_proc -public im_sysconfig_admin_guide {
 	if {$indent > 0} {
 	    # Normal line - Write out link
 	    append html "
-		<ul><li style=\"list-style-type: none;\"><input type=checkbox name=item value=$label title='$title'>&nbsp;$link_html:<br>$desc $help_html</li></ul>
+		<ul><li style=\"list-style-type: none;\"><input type=checkbox name=item value=$label title='$title'>&nbsp;$link_html:<br>$desc $config_html $help_html</li></ul>
 	    "
 	} else {
 	    # ident=0: Title row
