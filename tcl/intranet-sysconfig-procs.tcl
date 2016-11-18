@@ -187,10 +187,10 @@ ad_proc -public im_sysconfig_admin_guide {
 
 	set link_html "<b>$title</b>"
 
-	set config_html "<a href='$link' target='_blank'><span class=\"btn_po_small\">[lang::message::lookup "" intranet-sysconfig.Do_This_Now "Do this now"]</span></a>"
+	set config_html "<a href='$link' target='_blank'><span class=\"btn-po-small\">[lang::message::lookup "" intranet-sysconfig.Do_This_Now "Do this now"]</span></a>"
 	if {"" == $link} { set config_html "" }
 
-	set help_html "<a href='$help_site/$help' target='_blank'><span class=\"btn_po_small\">[lang::message::lookup "" intranet-core.More_Info "More Info"]</span></a>"
+	set help_html "<a href='$help_site/$help' target='_blank'><span class=\"btn-po-small\">[lang::message::lookup "" intranet-core.More_Info "More Info"]</span></a>"
 	if {"" == $help} { set help_html "" }
 
 	if {$indent > 0} {
