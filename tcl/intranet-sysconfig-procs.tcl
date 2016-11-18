@@ -219,10 +219,10 @@ ad_proc -public im_sysconfig_admin_guide {
 	<style>.fullwidth-list .component table.taskboard td { vertical-align:top; } </style>
 	<form action='/intranet-sysconfig/admin-guide/admin-guide-action.tcl'>
 	[export_vars -form {return_url}]
-<table cellpadding=\"10\" cellspacing=\"10\" border=\"0\">
+<table cellpadding=\"3\" cellspacing=\"3\" border=\"0\">
     <tr>
         <td valign=\"top\">
-            <table cellpadding=\"5\" cellspacing=\"5\" border=\"0\">
+            <table cellpadding=\"3\" cellspacing=\"3\" border=\"0\">
                 <tr>
                     <td colspan=\"2\"><span style=\"font-size: 16px; font-weight:bold; color:#666666\">Professional Support</span></td>
                 </tr>
@@ -239,7 +239,7 @@ ad_proc -public im_sysconfig_admin_guide {
             </table>
         </td>
         <td valign=\"top\">
-            <table cellpadding=\"10\" cellspacing=\"10\" border=\"0\">
+            <table cellpadding=\"3\" cellspacing=\"3\" border=\"0\">
                 <tr>
                     <td colspan=\"2\"><span style=\"font-size: 16px; font-weight:bold; color:#666666\">Online Documentation</span></td>
                 </tr>
@@ -256,7 +256,7 @@ ad_proc -public im_sysconfig_admin_guide {
     </tr>
     <tr>
         <td valign=\"top\">
-            <table cellpadding=\"10\" cellspacing=\"10\" border=\"0\">
+            <table cellpadding=\"3\" cellspacing=\"3\" border=\"0\">
                 <tr>
                     <td colspan=\"2\"><span style=\"font-size: 16px; font-weight:bold; color:#666666\">Professional Editions</span></td>
                 </tr>
@@ -273,7 +273,7 @@ ad_proc -public im_sysconfig_admin_guide {
             </table>
         </td>
         <td valign=\"top\">
-            <table cellpadding=\"10\" cellspacing=\"10\" border=\"0\">
+            <table cellpadding=\"3\" cellspacing=\"3\" border=\"0\">
                 <tr>
                     <td colspan=\"2\"><span style=\"font-size: 16px; font-weight:bold; color:#666666\">Saas Server</span></td>
                 </tr>
