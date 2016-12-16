@@ -16,8 +16,8 @@ ad_page_contract {
     prodtest:optional
 
     name:optional
-    { name_name:optional "Tigerpond Inc." }
-    { name_email:optional sysadmin@tigerpond.com }
+    { name_name:optional "" }
+    { name_email:optional "" }
 
     logo:optional
     logo_file:optional
@@ -78,6 +78,8 @@ set url_pieces [split $url "/"]
 set url_last_piece [lindex $url_pieces [llength $url_pieces]-1]
 set page $url_last_piece
 
+
+
 # ---------------------------------------------------------------
 # Handle logo file upload
 # ---------------------------------------------------------------
@@ -124,7 +126,7 @@ set prev_link "<input type=button class=button name=prev value='&lt;&lt; Prev'
 	title='&lt;&lt; Prev' alt='&lt;&lt; Prev'
 >"
 set next_link "<input type=button class=button name=next value='Next &gt;&gt;'
-	onClick=\"window.document.wizard.action='$next_page'; submit();\" 
+	onClick=\"sendForm();\" 
 	title='Next &gt;&gt;' alt='Next &gt;&gt;'
 >"
 

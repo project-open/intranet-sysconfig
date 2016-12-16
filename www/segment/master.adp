@@ -1,4 +1,6 @@
-<%      if {![info exists title] && [info exists doc(title)]} { set title $doc(title) } %>
+<%      
+	if {![info exists title] && [info exists doc(title)]} { set title $doc(title) } 
+%>
 <%= [im_header "[lang::message::lookup "" intranet-sysconfig.SysConfig_Wizard "SysConfig Wizard:"] $title"] %>
 <%= [im_navbar "admin"] %>
 
@@ -28,7 +30,6 @@
 <tbody>
 <tr><td class=tablebody colspan="3"><font size=-1>
 
-
 	<table height=400 width=600 cellspacing="0" cellpadding="0" border="0">
 	<tr valign="top"><td>
 
@@ -51,5 +52,173 @@
 </tbody>
 </form>
 </table>
+
+    <script type="text/javascript">
+    <!--
+	function sendForm()
+        {
+		if (validate()) {
+		   window.document.wizard.action='@next_page@';
+		   window.document.wizard.submit();
+	        }
+	}
+    --> 
+    </script>
+
+<if @page@ eq sector>
+    <script type="text/javascript">
+    <!--
+        function validate() {
+            if( window.document.wizard.sector.value == "" )
+            {
+                alert( "Please select an option!" );
+                window.document.wizard.sector.focus() ;
+                return false;
+            }
+            return true;
+        }
+    --> 
+    </script>
+</if>
+
+<elseif @page@ eq deptcomp>
+    <script type="text/javascript">
+    <!--
+        function validate() {
+            if( window.document.wizard.deptcomp.value == "" )
+            {
+                alert( "Please select an option!" );
+                window.document.wizard.deptcomp.focus() ;
+                return false;
+            }
+            return true;
+        }
+    -->
+    </script>
+</elseif>
+
+<elseif @page@ eq features>
+    <script type="text/javascript">
+    <!--
+        function validate() {
+            if( window.document.wizard.features.value == "" )
+            {
+                alert( "Please select an option!" );
+                window.document.wizard.features.focus() ;
+                return false;
+            }
+            return true;
+        }
+    -->
+    </script>
+</elseif>
+
+
+<elseif @page@ eq orgsize>
+    <script type="text/javascript">
+    <!--
+        function validate() {
+            if( window.document.wizard.orgsize.value == "" )
+            {
+                alert( "Please select an option!" );
+                window.document.wizard.features.focus() ;
+                return false;
+            }
+            return true;
+        }
+    -->
+    </script>
+</elseif>
+
+<elseif @page@ eq name>
+    <script type="text/javascript">
+    <!--
+        function validate()
+        {
+            if( window.document.wizard.name_name.value == "" )
+            {
+                alert( "Please provide a name of your company!" );
+                window.document.wizard.name_name.focus() ;
+                return false;
+            }
+
+            if( window.document.wizard.name_email.value == "" )
+            {
+                alert( "Please provide an email to have important system messages sent to you." );
+                window.document.wizard.name_email.focus() ;
+                return false;
+            } else {
+               atpos =  window.document.wizard.name_email.value.indexOf("@");
+               dotpos = window.document.wizard.name_email.value.lastIndexOf(".");
+               if (atpos < 1 || ( dotpos - atpos < 2 )) {
+                  alert("Please enter a correct email to have important system messages sent to you.")
+                  window.document.wizard.name_email.focus() ;
+                  return false;
+               }
+            }
+
+
+            return(true);
+       }
+
+       function validateEmail()
+       {
+         var emailID = document.myForm.EMail.value;
+         atpos = emailID.indexOf("@");
+         dotpos = emailID.lastIndexOf(".");
+
+         if (atpos < 1 || ( dotpos - atpos < 2 ))
+         {
+            alert("Please enter correct email ID")
+            document.myForm.EMail.focus() ;
+            return false;
+         }
+         return( true );
+       }
+
+       //-->
+       </script>
+</elseif>
+
+<elseif @page@ eq profiles>
+    <script type="text/javascript">
+    <!--
+        function validate() {
+
+            if( 
+	    	!window.document.wizard.elements["profiles_array.employees,all_projects"].checked &&
+		!window.document.wizard.elements["profiles_array.employees,all_companies"].checked &&
+		!window.document.wizard.elements["profiles_array.employees,finance"].checked
+            )
+            {
+                alert( "Please select at least one option for line 'Employees'!" );
+                window.document.wizard.features.focus() ;
+                return false;
+            }
+            if(
+                !window.document.wizard.elements["profiles_array.project_managers,all_projects"].checked &&
+                !window.document.wizard.elements["profiles_array.project_managers,all_companies"].checked &&
+                !window.document.wizard.elements["profiles_array.project_managers,finance"].checked
+            )
+            {
+                alert( "Please select at least one option for line 'Project Managers'!" );
+                window.document.wizard.features.focus() ;
+                return false;
+            }
+            return true;
+        }
+    -->
+    </script>
+</elseif>
+
+<else>
+    <script type="text/javascript">
+    <!--
+	function validate() { 
+	     return true; 
+	}
+    --> 
+    </script>
+</else>
 
 <%= [im_footer] %>
