@@ -48,7 +48,7 @@ template::multirow create templates template_name url
 
 set base_path "$serverroot/packages/intranet-sysconfig/templates"
 set files ""
-catch { set files [exec $find_cmd $base_path -noleaf -type f] }
+catch { set files [im_exec $find_cmd $base_path -noleaf -type f] }
 foreach file $files {
     set file_name [lindex [split $file "/"] end]
     set file_ext [lindex [split $file_name "."] end]
