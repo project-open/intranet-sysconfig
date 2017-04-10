@@ -29,7 +29,6 @@ if {!$user_is_admin_p} {
 
 # Determine the template
 set serverroot [acs_root_dir]
-set find_cmd [im_filestorage_find_cmd]
 if {"" == $return_url} { set return_url [im_url_with_query] }
 
 set page_title "[lang::message::lookup "" intranet-sysconfig.SysConfig "SysConfig"]"
@@ -48,7 +47,7 @@ template::multirow create templates template_name url
 
 set base_path "$serverroot/packages/intranet-sysconfig/templates"
 set files ""
-catch { set files [im_exec $find_cmd $base_path -noleaf -type f] }
+catch { set files [im_exec find $base_path -noleaf -type f] }
 foreach file $files {
     set file_name [lindex [split $file "/"] end]
     set file_ext [lindex [split $file_name "."] end]
