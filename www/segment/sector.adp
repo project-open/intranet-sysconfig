@@ -42,6 +42,7 @@
   </td>
 </tr>
 
+<!--
 <tr valign="top">
   <td>
   <input type="radio" name="sector" value="translation" <if @sector@ eq "translation">checked</if>>
@@ -51,6 +52,7 @@
 	Translation, Software Localization, Technical Documentation, ...
   </td>
 </tr>
+-->
 
 <tr valign="top">
   <td><input type="radio" name="sector" value="advertizing" <if @sector@ eq "advertizing">checked</if>></td>

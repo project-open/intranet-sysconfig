@@ -27,15 +27,9 @@ ad_page_contract {
     profiles_array:array,optional
 }
 
-# Default value if profiles_array wasn't specified in a default call
-if {![info exists profiles_array]} {
-    array set profiles_array {employees,all_projects on project_managers,all_projects on project_managers,all_companies on}
-}
-
 
 # ---------------------------------------------------------------
-# Output headers
-# Allows us to write out progress info during the execution
+# Defaults & Security
 # ---------------------------------------------------------------
 
 set current_user_id [auth::require_login]
@@ -45,15 +39,28 @@ if {!$user_is_admin_p} {
     return
 }
 
+# Default value if profiles_array wasn't specified in a default call
+if {![info exists profiles_array]} {
+    array set profiles_array {employees,all_projects on project_managers,all_projects on project_managers,all_companies on}
+}
+
+if {"other" eq $sector} { set sector "other_sector" }
+if {"other" eq $deptcomp} { set deptcomp "other_deptcomp" }
+if {"other" eq $features} { set features "maximum" }
+
+
+
+# ---------------------------------------------------------------
+# Output headers
+# Allows us to write out progress info during the execution
+# ---------------------------------------------------------------
+
 set content_type "text/html"
 set http_encoding "iso8859-1"
-
 append content_type "; charset=$http_encoding"
-
 set all_the_headers "HTTP/1.0 200 OK
 MIME-Version: 1.0
 Content-Type: $content_type\r\n"
-
 util_WriteWithExtraOutputHeaders $all_the_headers
 ReturnHeaders $content_type
 ns_write "[im_header] [im_navbar]"
@@ -67,19 +74,19 @@ ns_write "<br>&nbsp;<h2>Resetting System to Default</h2>\n"
 
 ns_write "<li>Enabling menus ... "
 catch {db_dml enable_menus "update im_menus set enabled_p = 't'"}  err
-ns_write "done<br><pre>$err</pre>\n"
+ns_write "done<br><pre>$err</pre>"
 
 ns_write "<li>Enabling categories ... "
 catch {db_dml enable_categories "update im_categories set enabled_p = 't'"}  err
-ns_write "done<br><pre>$err</pre>\n"
+ns_write "done<br><pre>$err</pre>"
 
 ns_write "<li>Enabling portlets ... "
 catch {db_dml enable_components "update im_component_plugins set enabled_p = 't'"}  err
-ns_write "done<br><pre>$err</pre>\n"
+ns_write "done<br><pre>$err</pre>"
 
 ns_write "<li>Enabling projects ... "
 catch {db_dml enable_projects "update im_projects set project_status_id = [im_project_status_open] where project_status_id = [im_project_status_deleted]"}  err
-ns_write "done<br><pre>$err</pre>\n"
+ns_write "done<br><pre>$err</pre>"
 
 
 # ---------------------------------------------------------------
@@ -101,7 +108,7 @@ parameter::set_from_package_key -package_key "acs-mail-lite" -parameter "Notific
 parameter::set_from_package_key -package_key "acs-subsite" -parameter "NewRegistrationEmailAddress" -value $name_email
 ns_write "done<br>\n"
 
-ns_write "<li>setting url ... "
+ns_write "<li>setting SystemUrl ... "
 parameter::set_from_package_key -package_key "acs-kernel" -parameter "SystemURL" -value "http://[ad_host]:[ad_port]/" 
 ns_write "done<br>\n"
 
@@ -159,140 +166,291 @@ foreach i [array names group_ids] {
     ns_write "...done<br>\n"
 }
 
+
+
 # ---------------------------------------------------------------
-# Sector Configuration
+# Default configuration
+# Starts with everything enabled and then disables packages not 
+# needed by certain business sectors or organization types.
 # ---------------------------------------------------------------
 
-switch $sector {
-    biz_consulting - advertizing - engineering {
-	set install_consulting_p 1
-	set install_translation_p 0
-	set install_itsm_p 0
-    }
-    it_consulting {
-	set install_consulting_p 1
-	set install_translation_p 0
-	set install_itsm_p 1
-    }
-    translation {
-	set install_consulting_p 0
-	set install_translation_p 1
-	set install_itsm_p 0
-    }
-    default {
-	set install_consulting_p 1
-	set install_translation_p 1
-	set install_itsm_p 1
-    }
+set disable(intranet-agile) 0
+set disable(intranet-audit) 0
+set disable(intranet-baseline) 0
+set disable(intranet-big-brother) 0
+set disable(intranet-bug-tracker) 0
+set disable(intranet-calendar) 0
+set disable(intranet-chat) 0
+set disable(intranet-checklist) 0
+set disable(intranet-confdb) 0
+set disable(intranet-core) 0
+set disable(intranet-cost) 0
+set disable(intranet-cost-center) 0
+set disable(intranet-crm-opportunities) 0
+set disable(intranet-csv-import) 0
+set disable(intranet-cvs-integration) 0
+set disable(intranet-department-planner) 0
+set disable(intranet-dw-light) 0
+set disable(intranet-dynfield) 0
+set disable(intranet-earned-value-management) 0
+set disable(intranet-estimate-to-complete) 0
+set disable(intranet-exchange-rate) 0
+set disable(intranet-expenses) 0
+set disable(intranet-expenses-workflow) 0
+set disable(intranet-filestorage) 0
+set disable(intranet-forum) 0
+set disable(intranet-gantt-editor) 0
+set disable(intranet-ganttproject) 0
+set disable(intranet-helpdesk) 0
+set disable(intranet-hr) 0
+set disable(intranet-idea-management) 0
+set disable(intranet-invoices) 0
+set disable(intranet-mail-import) 0
+set disable(intranet-material) 0
+set disable(intranet-milestone) 0
+set disable(intranet-nagios) 0
+set disable(intranet-notes) 0
+set disable(intranet-payments) 0
+set disable(intranet-planning) 0
+set disable(intranet-portfolio-management) 0
+set disable(intranet-portfolio-planner) 0
+set disable(intranet-project-scoring) 0
+set disable(intranet-release-mgmt) 0
+set disable(intranet-reporting) 0
+set disable(intranet-reporting-cubes) 0
+set disable(intranet-reporting-dashboard) 0
+set disable(intranet-reporting-finance) 0
+set disable(intranet-reporting-indicators) 0
+set disable(intranet-reporting-openoffice) 0
+set disable(intranet-reporting-tutorial) 0
+set disable(intranet-resource-management) 0
+set disable(intranet-rest) 0
+set disable(intranet-riskmanagement) 0
+set disable(intranet-rule-engine) 0
+set disable(intranet-scrum) 0
+set disable(intranet-search-pg) 0
+set disable(intranet-search-pg-files) 0
+set disable(intranet-security-update-client) 0
+set disable(intranet-sharepoint) 0
+set disable(intranet-simple-survey) 0
+set disable(intranet-sla-management) 0
+set disable(intranet-slack) 0
+set disable(intranet-soap-lite-server) 0
+set disable(intranet-sql-selectors) 0
+set disable(intranet-sysconfig) 0
+set disable(intranet-task-management) 0
+set disable(intranet-timesheet2) 0
+set disable(intranet-timesheet2-invoices) 0
+set disable(intranet-timesheet2-task-popup) 0
+set disable(intranet-timesheet2-tasks) 0
+set disable(intranet-timesheet2-workflow) 0
+set disable(intranet-wiki) 0
+set disable(intranet-workflow) 0
+set disable(sencha-core) 0
+set disable(sencha-filestorage) 0
+set disable(sencha-member-portlet) 0
+set disable(sencha-reporting-portfolio) 0
+set disable(sencha-task-editor) 0
+set disable(senchatouch-notes) 0
+set disable(senchatouch-timesheet) 0
+
+
+# ---------------------------------------------------------------
+# Business Sector:
+# A number of packages are specific to IT organizations:
+# - Configuration Database
+# - Release Management
+# - Scrum and Agile PM
+#
+if {"it_consulting" ne $sector} {
+    set disable(intranet-scrum) 1
+    set disable(intranet-agile) 1
+    set disable(intranet-big-brother) 1
+    set disable(intranet-confdb) 1
+    set disable(intranet-cvs-integration) 1
+    set disable(intranet-helpdesk) 1
+    set disable(intranet-nagios) 1
+    set disable(intranet-icinga2) 1
+    set disable(intranet-release-mgmt) 1
+    set disable(intranet-scrum) 1
+    set disable(intranet-sla-management) 1
 }
 
+# The other sectors are generic:
+# 
+# - biz_consulting
+# - advertizing
+# - engineering
+# - other_sector
+
+
 # ---------------------------------------------------------------
-# Disable Consulting Stuff
+# Department or Company:
+# - Departments don't need CRM
+# - Companies don't need Portfolio Management
+#
 
-if {!$install_consulting_p} {
-    ns_write "<br>&nbsp;<h2>Disabling 'Consulting' Portlets</h2>"
-
-    # ToDo
-    ns_write "<li>Disabling 'Consulting' Categories ... "
-    set project_type_gantt_id [db_string t "select category_id from im_categories where category = 'Gantt Project'"]
-    catch {db_dml disable_trans_cats "
-	update im_categories 
-	set enabled_p = 'f'
-	where category_id in ([join [im_sub_categories -include_disabled_p 1 $project_type_gantt_id] ","])
-    "}  err
-    ns_write "done<br><pre>$err</pre>\n"
-  
-    ns_write "<li>Disabling 'Consulting' Projects ... "
-    catch {db_dml disable_trans_cats "
-	update im_projects
-	set project_status_id = [im_project_status_deleted]
-	where project_type_id in ([join [im_sub_categories -include_disabled_p 1 $project_type_gantt_id] ","])
-    "}  err
-    ns_write "done<br><pre>$err</pre>\n"
-
-    ns_write "<li>Disabling 'Consulting' Menus ... "
-    catch {db_dml disable_trans_cats "
-	update im_menus
-	set enabled_p = 'f'
-	where menu_id in (
-		select menu_id from im_menus where lower(name) like '%timesheet task%'
-	UNION	select menu_id from im_menus where lower(name) like '%wiki%%'
-	)
-    "}  err
-    ns_write "done<br><pre>$err</pre>\n"
-
-    ns_write "<li>Disabling 'Consulting' Portlets ... "
-    catch {db_dml disable_trans_cats "
-	update im_component_plugins
-	set enabled_p = 'f'
-	where plugin_id in (
-		select plugin_id from im_component_plugins where package_name in (
-			'timesheet2-invoices', 'intranet-timesheet2-tasks',
-			'intranet-ganttproject', 'intranet-wiki'
-		)
-	)
-    "}  err
-    ns_write "done<br><pre>$err</pre>\n"
+if {"dept" eq $deptcomp} {
+    set disable(intranet-crm-opportunities) 1
 }
+
+if {"sme" eq $deptcomp} {
+    # Portfolio Planner is useful also for companies:
+    # set disable(intranet-portfolio-planner) 1
+    set disable(intranet-portfolio-management) 1
+    set disable(sencha-reporting-portfolio) 1
+
+}
+
+# Other organization types:
+# We'll just enable everything.
+# - subsidary
+# - other_deptcomp
 
 
 
 # ---------------------------------------------------------------
-# Disable Translation Stuff
-
-if {!$install_translation_p} {
-    ns_write "<br>&nbsp;<h2>Disabling 'Translation' Portlets</h2>\n"
-
-    ns_write "<li>Disabling 'Translation' Categories ... "
-    set project_type_translation_id [db_string t "select category_id from im_categories where category = 'Translation Project'" -default 0]
-    catch {db_dml disable_trans_cats "
-	update im_categories 
-	set enabled_p = 'f'
-	where category_id in ([join [im_sub_categories -include_disabled_p 1 $project_type_translation_id] ","])
-    "}  err
-    ns_write "done<br><pre>$err</pre>\n"
+# Hierarchical Levels don't have any impact yet
+# - one
+# - two
+# - three
+# - four
 
 
-    ns_write "<li>Disabling 'Translation' Projects ... "
-    catch {db_dml disable_trans_cats "
-	update im_projects
-	set project_status_id = [im_project_status_deleted]
-	where project_type_id in ([join [im_sub_categories -include_disabled_p 1 $project_type_translation_id] ","])
-    "}  err
-    ns_write "done<br><pre>$err</pre>\n"
+# ---------------------------------------------------------------
+# Features=minimum and =maximum
+# ---------------------------------------------------------------
 
-    ns_write "<li>Disabling 'Translation' Menus ... "
-    catch {db_dml disable_trans_cats "
-	update im_menus
-	set enabled_p = 'f'
-	where menu_id in (
-		select menu_id from im_menus where label like '%_trans_%'
-	UNION	select menu_id from im_menus where lower(name) like '%trans%'
-	)
-    "}  err
-    ns_write "done<br><pre>$err</pre>\n"
+# Default
+db_dml menu "update im_menus set url = '/intranet/projects/index' where label = 'projects'"
 
-    ns_write "<li>Disabling 'Translation' Portlets ... "
-    catch {db_dml disable_trans_cats "
-	update im_component_plugins
-	set enabled_p = 'f'
-	where plugin_id in (
-		select plugin_id from im_component_plugins where package_name like '%trans%'
-	)
-    "}  err
-    ns_write "done<br><pre>$err</pre>\n"
+if {"minimum" eq $features} {
+    # Disable all packages
+    foreach pack [array names disable] { set disable($pack) 1  }
+
+    # Work with Portfolio Planner instead of project list
+    # Fraber 170503: not yet...
+    # db_dml menu "update im_menus set url = '/intranet-portfolio-planner/index' where label = 'projects'"
+    
+    # Just enable the bare minimum
+    set disable(intranet-core) 0
+    set disable(intranet-gantt-editor) 0
+    set disable(intranet-portfolio-planner) 0
+    set disable(intranet-reporting) 0
+    set disable(intranet-reporting-cubes) 0
+    set disable(intranet-reporting-dashboard) 0
+    set disable(intranet-reporting-finance) 0
+    set disable(intranet-reporting-indicators) 0
+    set disable(intranet-reporting-openoffice) 0
+    set disable(intranet-search-pg) 0
+    set disable(intranet-security-update-client) 0
+    set disable(intranet-timesheet2) 0
+    set disable(intranet-timesheet2-tasks) 0
+    set disable(sencha-core) 0
+
+    # Disable some portlets for bare minimum
+    db_dml comp "update im_component_plugins set enabled_p = 'f' where plugin_name = 'Project Finance Summary Component'"
+    db_dml comp "update im_component_plugins set enabled_p = 'f' where plugin_name = 'Home Gantt Tasks'"
+    db_dml comp "update im_component_plugins set enabled_p = 'f' where plugin_name = 'Home Indicator Component'"
+    db_dml comp "update im_component_plugins set enabled_p = 'f' where plugin_name = 'Home Page Project Component'"
+    db_dml comp "update im_component_plugins set enabled_p = 'f' where plugin_name = 'Last Projects'"
+    db_dml comp "update im_component_plugins set enabled_p = 'f' where plugin_name = 'User Related Objects'"
+    db_dml comp "update im_component_plugins set enabled_p = 'f' where plugin_name = 'Home Page Help Blurb'"
+    db_dml comp "update im_component_plugins set enabled_p = 'f' where plugin_name = 'Home Calendar Component'"
+    db_dml comp "update im_component_plugins set enabled_p = 'f' where plugin_name = 'Project Finance Summary Component'"
+    db_dml comp "update im_component_plugins set enabled_p = 'f' where plugin_name = 'Vacation Balance'"
+    db_dml comp "update im_component_plugins set enabled_p = 'f' where plugin_name = 'Customers worked for'"
+    db_dml comp "update im_component_plugins set enabled_p = 'f' where plugin_name = 'User Offices'"
+    db_dml comp "update im_component_plugins set enabled_p = 'f' where plugin_name = 'User Notifications'"
+    db_dml comp "update im_component_plugins set enabled_p = 'f' where plugin_name = 'Project Hierarchy'"
+    db_dml comp "update im_component_plugins set enabled_p = 'f' where plugin_name = 'Project Timesheet Tasks'"
+    db_dml comp "update im_component_plugins set enabled_p = 'f' where plugin_name = 'Top Customers'"
+    db_dml comp "update im_component_plugins set enabled_p = 'f' where plugin_name = ''"
+    db_dml comp "update im_component_plugins set enabled_p = 'f' where plugin_name = ''"
+    db_dml comp "update im_component_plugins set enabled_p = 'f' where plugin_name = ''"
+    db_dml comp "update im_component_plugins set enabled_p = 'f' where plugin_name = ''"
+    db_dml comp "update im_component_plugins set enabled_p = 'f' where plugin_name = ''"
+
+    # Set some parameters for minimum complexity
+    parameter::set_from_package_key -package_key "intranet-core" -parameter "EnableCloneProjectLinkP" -value "0"
+    parameter::set_from_package_key -package_key "intranet-core" -parameter "EnableExecutionProjectLinkP" -value "0"
+    parameter::set_from_package_key -package_key "intranet-core" -parameter "EnableNestedProjectsP" -value "0"
+    parameter::set_from_package_key -package_key "intranet-core" -parameter "EnableNewFromTemplateLinkP" -value "0"
+    # disable Timesheet workflow
+    parameter::set_from_package_key -package_key "intranet-timesheet2-workflow" -parameter "DefaultWorkflowKey" -value ""
+
+    # Disable some menus for bare minimum
+    db_dml menu "update im_menus set enabled_p = 'f' where label = 'timesheet2_absences'"
+    db_dml menu "update im_menus set enabled_p = 'f' where label = 'project_finance'"
+    db_dml menu "update im_menus set enabled_p = 'f' where label = 'openoffice_project_phases_risks_pptx'"
+    db_dml menu "update im_menus set enabled_p = 'f' where label = 'openoffice_project_phases_risks_odp'"
+    db_dml menu "update im_menus set enabled_p = 'f' where label = 'project_programs'"
+    db_dml menu "update im_menus set enabled_p = 'f' where label = 'programs_list'"
+    db_dml menu "update im_menus set enabled_p = 'f' where label = 'projects_profit_loss'"
+    db_dml menu "update im_menus set enabled_p = 'f' where label like 'reporting-finance%'"
+    db_dml menu "update im_menus set enabled_p = 'f' where label like 'reporting-budget%'"
+    db_dml menu "update im_menus set enabled_p = 'f' where label like 'reporting-program%'"
+    db_dml menu "update im_menus set enabled_p = 'f' where label like 'reporting-ticket%'"
+    db_dml menu "update im_menus set enabled_p = 'f' where label like 'reporting-confdb%'"
+    db_dml menu "update im_menus set enabled_p = 'f' where label like 'reporting-csv%'"
+    db_dml menu "update im_menus set enabled_p = 'f' where label like 'reporting-survimp%'"
+    db_dml menu "update im_menus set enabled_p = 'f' where label like 'reporting_survsimp%'"
+    db_dml menu "update im_menus set enabled_p = 'f' where label like 'reporting-tutorial%'"
+    db_dml menu "update im_menus set enabled_p = 'f' where label = 'reporting-sales'"
+    db_dml menu "update im_menus set enabled_p = 'f' where label = 'reporting-forum'"
+    db_dml menu "update im_menus set enabled_p = 'f' where label = 'indicators'"
+    db_dml menu "update im_menus set enabled_p = 'f' where label = 'dashboard'"
+    db_dml menu "update im_menus set enabled_p = 'f' where label = ''"
+    db_dml menu "update im_menus set enabled_p = 'f' where label = ''"
+    db_dml menu "update im_menus set enabled_p = 'f' where label = ''"
+    db_dml menu "update im_menus set enabled_p = 'f' where label = ''"
+    db_dml menu "update im_menus set enabled_p = 'f' where label = ''"
+
+}
+
+if {"maximum" eq $features} {
+    # Enable all packages
+    foreach pack [array names disable] { set disable($pack) 0  }
+
+    # Enable all categories
+    db_dml enable_all_categories "update im_categories set enabled_p = 't'"
+
+    # Enable all menus
+    db_dml enable_all_menus "update im_menus set enabled_p = 't'"
+
+    # Enable all portlets
+    db_dml enable_all_portlets "update im_component_plugins set enabled_p = 't'"
 }
 
 
+
+
+
+db_dml disable_menus "
+	update im_menus set enabled_p = 'f' where label in (
+		'home_summary','projects_open','resource_management_home','expenses_dashboard',
+		'dashboard','customers_potential','customers_inactive','customers_active',
+		'projects_potential','projects_closed'
+	)
+"
+
+db_dml disable_plugins "
+	update im_component_plugins set enabled_p = 'f' where plugin_name in (
+		'Home Gantt Tasks', 			-- replaced by intranet-task-management portlet
+		'Home Page Help Blurb',			-- replaced by interactive configuration wizard
+		'Project Finance Summary Component',	-- details shown in finance tab
+		'System Configuration Wizard',		-- _this_ wizard. Not necessary anymore after config.
+		'Home Calendar Component'		-- rarely used
+	)
+"
 
 
 # ---------------------------------------------------------------
 # Disable ITSM Stuff
+#
+if {$disable(intranet-helpdesk)} {
 
-if {!$install_itsm_p} {
-
-    ns_write "<br>&nbsp;<h2>Disabling 'ITSM' Portlets</h2>\n"
-    ns_write "<li>Disabling 'ITSM' Categories ... "
+    ns_write "<li>Disabling Helpdesk Categories ... "
     catch {
 	db_dml disable_itsm_cats "
 		update im_categories 
@@ -308,8 +466,7 @@ if {!$install_itsm_p} {
     } err
     ns_write "done<br><pre>$err</pre>\n"
 
-
-    ns_write "<li>Disabling 'ITSM' Projects ... "
+    ns_write "<li>Disabling Helpdesk Demo Projects ... "
     catch {db_dml disable_itsm_cats "
 	update im_projects
 	set project_status_id = [im_project_status_deleted]
@@ -322,145 +479,23 @@ if {!$install_itsm_p} {
 	)
     "} err
     ns_write "done<br><pre>$err</pre>\n"
-
-    ns_write "<li>Disabling 'ITSM' Menus ... "
-    catch {db_dml disable_itsm_cats "
-	update im_menus
-	set enabled_p = 'f'
-	where menu_id in (
-		select menu_id from im_menus where label like '%_itsm_%'
-	UNION	select menu_id from im_menus where lower(name) like '%itsm%'
-	UNION	select menu_id from im_menus where label = 'helpdesk'
-	UNION	select menu_id from im_menus where label = 'conf_items'
-	)
-    "} err
-    ns_write "done<br><pre>$err</pre>\n"
-
-    ns_write "<li>Disabling 'ITSM' Portlets ... "
-    catch {db_dml disable_itsm_cats "
-	update im_component_plugins
-	set enabled_p = 'f'
-	where plugin_id in (
-		select plugin_id from im_component_plugins where package_name like '%itsm%'
-	UNION	select plugin_id from im_component_plugins where package_name = 'intranet-helpdesk'
-	UNION	select plugin_id from im_component_plugins where package_name = 'intranet-confdb'
-	UNION	select plugin_id from im_component_plugins where package_name = 'intranet-bug-tracker'
-	UNION	select plugin_id from im_component_plugins where package_name = 'intranet-big-brother'
-	UNION	select plugin_id from im_component_plugins where package_name = 'intranet-nagios'
-	UNION	select plugin_id from im_component_plugins where package_name = 'intranet-release-mgmt'
-	)
-    "} err
-    ns_write "done<br><pre>$err</pre>\n"
 }
 
 
 
+
+
+
 # ---------------------------------------------------------------
-# Feature Simplifications
+# Disable Packages
 #
-# Disable these features _in_addition_ to the simplifications
-# above for business sectors.
-# ---------------------------------------------------------------
-
-set disable(intranet-bug-tracker) 0
-set disable(intranet-chat) 0
-set disable(intranet-big-brother) 0
-set disable(intranet-expenses) 0
-set disable(intranet-filestorage) 0
-set disable(intranet-forum) 0
-set disable(intranet-freelance) 0
-set disable(intranet-freelance-invoices) 0
-set disable(intranet-ganttproject) 0
-set disable(intranet-search-pg) 0
-set disable(intranet-search-pg-files) 0
-set disable(intranet-simple_survey) 0
-set disable(intranet-sysconfig) 0
-set disable(intranet-timesheet2) 0
-set disable(intranet-timesheet2-invoices) 0
-set disable(intranet-timesheet2-tasks) 0
-set disable(intranet-timesheet2-task-popup) 1
-set disable(intranet-translation) 0
-set disable(intranet-trans-rfq) 0
-set disable(intranet-trans-quality) 0
-set disable(intranet-wiki) 0
-set disable(intranet-workflow) 0
-set disable(intranet-milestone) 0
-set disable(intranet-audit) 0
-set disable(intranet-freelance) 0
-set disable(intranet-freelance-invoices) 0
-set disable(intranet-freelance-rfqs) 0
-set disable(intranet-freelance-translation) 0
-set disable(intranet-simple-survey) 0
-set disable(intranet-notes) 0
-set disable(intranet-calendar) 0
-
-
-switch $features {
-    minimum {
-	set disable(intranet-bug-tracker) 1
-	set disable(intranet-chat) 1
-	set disable(intranet-big-brother) 1
-	set disable(intranet-expenses) 1
-	set disable(intranet-forum) 1
-	set disable(intranet-filestorage) 1
-	set disable(intranet-freelance) 1
-	set disable(intranet-freelance-invoices) 1
-	set disable(intranet-ganttproject) 1
-	set disable(intranet-simple_survey) 1
-	set disable(intranet-timesheet2) 1
-	set disable(intranet-timesheet2-invoices) 1
-	set disable(intranet-timesheet2-tasks) 1
-	set disable(intranet-timesheet2-task-popup) 1
-	set disable(intranet-trans-rfq) 1
-	set disable(intranet-trans-quality) 1
-	set disable(intranet-wiki) 1
-	set disable(intranet-workflow) 1
-	set disable(intranet-milestone) 1
-	set disable(intranet-milestone) 1
-	set disable(intranet-audit) 1
-	set disable(intranet-freelance) 1
-	set disable(intranet-freelance-invoices) 1
-	set disable(intranet-freelance-rfqs) 1
-	set disable(intranet-freelance-translation) 1
-	set disable(intranet-simple-survey) 1
-	set disable(intranet-notes) 1
-	set disable(intranet-calendar) 1
-
-        db_dml fincomp "update im_component_plugins set enabled_p = 'f' where plugin_name = 'Project Finance Summary Component'"
-	
-	parameter::set_from_package_key -package_key "intranet-core" -parameter "EnableCloneProjectLinkP" -value "0"
-	parameter::set_from_package_key -package_key "intranet-core" -parameter "EnableExecutionProjectLinkP" -value "0"
-	parameter::set_from_package_key -package_key "intranet-core" -parameter "EnableNestedProjectsP" -value "0"
-	parameter::set_from_package_key -package_key "intranet-core" -parameter "EnableNewFromTemplateLinkP" -value "0"
-    }
-    frequently_used {
-	set disable(intranet-bug-tracker) 1
-	set disable(intranet-chat) 1
-	set disable(intranet-big-brother) 1
-	set disable(intranet-forum) 1
-	set disable(intranet-ganttproject) 1
-	set disable(intranet-simple_survey) 1
-	set disable(intranet-trans-rfq) 1
-	set disable(intranet-wiki) 1
-    }
-    default { 
-	set disable(intranet-big-brother) 1
-    }
-}
-
-
-
-# ---------------------------------------------------------------
-# Disable Modules
-
-foreach package [array names disable] {
-    
+foreach package [lsort [array names disable]] {
     set dis $disable($package)
     if {$dis} {
 	ns_write "<br>&nbsp;<h2>Disabling '$package'</h2>\n"
 	
 	ns_write "<li>Disabling '$package' Menus ... "
-	catch {db_dml disable_trans_cats "
+	catch {db_dml disable_menus "
 		update	im_menus
 		set	enabled_p = 'f'
 		where	package_name = :package
@@ -468,7 +503,7 @@ foreach package [array names disable] {
 	ns_write "done<br><pre>$err</pre>\n"
 
 	ns_write "<li>Disabling '$package' Portlets ... "
-	catch {db_dml disable_trans_cats "
+	catch {db_dml disable_plugins "
 		update	im_component_plugins
 		set	enabled_p = 'f'
 		where	package_name = :package
@@ -482,19 +517,18 @@ foreach package [array names disable] {
 # Disabling portlets
 # ---------------------------------------------------------------
 
-ns_write "<br>&nbsp;<h2>Disabling Portlets</h2>\n"
+ns_write "<br>&nbsp;<h2>Disabling SysConfig Portlets</h2>\n"
 ns_write "<li>Disabling 'intranet-sysconfig' Portlets ... "
 db_dml dis "update im_component_plugins set enabled_p = 'f' where plugin_name = 'System Configuration Wizard'"
 
 
-ns_write "<li>Disabling Home Gantt Tasks Portlets ... "
-db_dml dis "update im_component_plugins set enabled_p = 'f' where plugin_name = 'Home Gantt Tasks'"
-db_dml dis "update im_component_plugins set enabled_p = 'f' where plugin_name = 'Home Page Help Blurb'"
-db_dml dis "update im_component_plugins set enabled_p = 'f' where plugin_name = 'Home Calendar Component'"
-db_dml dis "update im_component_plugins set enabled_p = 'f' where plugin_name = 'Project Finance Summary Component'"
-db_dml dis "update im_component_plugins set enabled_p = 'f' where plugin_name = ''"
-db_dml dis "update im_component_plugins set enabled_p = 'f' where plugin_name = ''"
-db_dml dis "update im_component_plugins set enabled_p = 'f' where plugin_name = ''"
+
+
+# ---------------------------------------------------------------
+# Generic fixes for disabled stuff etc.
+#
+# Don't show skins, while there is only one!
+db_dml comp "update im_component_plugins set enabled_p = 'f' where plugin_name = 'User Skin Information'"
 
 
 
@@ -506,6 +540,7 @@ db_dml dis "update im_component_plugins set enabled_p = 'f' where plugin_name = 
 ns_write "<br>&nbsp;<h2>Reseting ASUS Verbosity Level</h2>\n"
 ns_write "<li>Resetting ASUS Verbosity ... "
 
+set err ""
 set verbosity -1
 set package_key "intranet-security-update-client"
 set package_id [db_string package_id "select package_id from apm_packages where package_key=:package_key" -default 0]
@@ -522,19 +557,16 @@ ns_write "done<br><pre>$err</pre>\n"
 # This disable is overwritten by the enable all above
 # ---------------------------------------------------------------
 
-db_dml disable_task_project_type "update im_categories set enabled_p = 'f' where category_id = 100"
-
-
+db_dml disable_task_project_type "update im_categories set enabled_p = 'f' where category_id = [im_project_type_task]"
 
 
 # ---------------------------------------------------------------
 # Delete Security Tokens
 # ---------------------------------------------------------------
 
-
-# Update the security tokensof the local server
-# Users might be a way to gain access if the tokens are
-# publicly known (from the default installation)
+# Update the security tokens of the local server
+# Users can gain access if the tokens are publicly known 
+# (from the default installation)
 
 ns_write "<br>&nbsp;<h2>Deleting Security Tokens</h2>\n"
 ns_write "<li>Deleting tokens...\n"
@@ -553,13 +585,10 @@ ns_write "done\n"
 # Finish off page
 # ---------------------------------------------------------------
 
-
 ns_write "<p>&nbsp;</p><hr><p>&nbsp;</p>\n"
 ns_write "<h1>Configuration Successful</h1>\n"
 ns_write "<blockquote><b>Please <a href='/acs-admin/server-restart'>restart your server now</a></b>.</blockquote>\n"
 ns_write "<p>&nbsp;</p>\n"
-
-
 
 
 # Remove all permission related entries in the system cache
@@ -568,5 +597,3 @@ im_permission_flush
 
 
 ns_write "[im_footer]\n"
-
-

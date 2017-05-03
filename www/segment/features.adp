@@ -5,7 +5,6 @@
 <master src="master">
 <property name="doc(title)">System Configuration Wizard</property>
 
-
 <h2>Simplified or Complete Install?</h2>
 
 <table border="0" width="80%">
@@ -22,7 +21,7 @@
   <td><input type="radio" name="features" value="minimum" <if @features@ eq "minimum">checked</if>></td>
   <td colspan="2">
 	<b>Simplified System</b><br>
-	Install only essential packages.<br>
+	Install a minimal system with projects and timesheet.<br>
 	This option is useful for first time @po;noquote@ users.
 	<br>&nbsp;
   </td>
@@ -31,9 +30,11 @@
 <tr valign="top">
   <td><input type="radio" name="features" value="frequently_used" <if @features@ eq "frequently_used">checked</if>></td>
   <td colspan="2">
+    <div style="border:0px solid; background:#eee;">
 	<b>Default System</b><br>
-	Install frequently used packages and disable less 
-	frequently used extensions.<br>&nbsp;
+	Install packages suitable for business sector and organization type.
+    </div>
+	<br>
   </td>
 </tr>
 
@@ -41,7 +42,8 @@
   <td><input type="radio" name="features" value="other" <if @features@ eq "other">checked</if>></td>
   <td colspan="2">
 	<b>Complete / Full Installation</b><br>
-	Install everything.<br>
+	Install everything. You will have to manually disable unsuitable packages.<br>
+	This option is useful for advanced @po;noquote@ users.
 	<br>&nbsp;
   </td>
 </tr>

@@ -33,5 +33,5 @@ set po_small "<span class=brandsec>&\#93;</span><span class=brandfirst>po</span>
 
 set features ""
 catch {set features [ns_set iget [ad_conn form] "features"]} err
-
+if {"" eq $features} { set features "frequently_used" }
 
