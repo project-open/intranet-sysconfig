@@ -424,13 +424,14 @@ if {"maximum" eq $features} {
 
 
 
-
-
+# ---------------------------------------------------------
+# Disable the following menus and plugins for all configurations
+#
 db_dml disable_menus "
 	update im_menus set enabled_p = 'f' where label in (
 		'home_summary','projects_open','resource_management_home','expenses_dashboard',
 		'dashboard','customers_potential','customers_inactive','customers_active',
-		'projects_potential','projects_closed'
+		'projects_potential','projects_closed', 'project_gantt', 'project_resources'
 	)
 "
 
