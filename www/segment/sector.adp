@@ -11,9 +11,8 @@
 <tr><td colspan="3">
 
 	<p>
-	The following pages allow you to configure @po;noquote@ 
-	according to your needs. You can change these settings at 
-	any time without rebooting or reinstalling the system.
+	The following pages allow you to configure @po;noquote@ according to your needs. 
+	You can change these settings later at any time.
 	</p>
 	
 	<p>
