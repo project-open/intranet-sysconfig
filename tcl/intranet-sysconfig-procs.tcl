@@ -560,3 +560,85 @@ ad_proc -public im_sysconfig_load_configuration { file } {
     return $html
 }
 
+
+# ------------------------------------------------------------
+# Timeshift
+# ------------------------------------------------------------
+
+ad_proc -public im_sysconfig_timeshift { 
+
+} {
+    Checks the demo-data for age and updated demo-data
+} {
+    set now_julian [db_string av "select to_char(now()::date, 'J')"]
+    set project_start_julian [db_string av "select round(avg(to_char(start_date, 'J')::integer)) from im_projects"]
+
+    # Check if the data are already up to date
+    set offset [expr $now_julian - $project_start_julian]
+    if {$offset <= 0} { return $offset }
+
+    db_dml up "update acs_logs set log_date = log_date + '$offset days'::interval"
+
+    db_dml up "update acs_objects set creation_date = creation_date + '$offset days'::interval"
+    db_dml up "update acs_objects set last_modified = last_modified + '$offset days'::interval"
+
+    db_dml up "update cr_revisions set publish_date = publish_date + '$offset days'::interval"
+
+    db_dml up "update im_audits set audit_date = audit_date + '$offset days'::interval"
+
+    db_dml up "update im_costs set effective_date = effective_date + '$offset days'::interval"
+    db_dml up "update im_costs set last_modified = last_modified + '$offset days'::interval"
+    db_dml up "update im_costs set start_block = start_block + '$offset days'::interval"
+
+    db_dml up "update im_forum_topics set posting_date = posting_date + '$offset days'::interval"
+    db_dml up "update im_forum_topics set due_date = due_date + '$offset days'::interval"
+
+    db_dml up "update im_gantt_assignment_timephases set timephase_end = timephase_end + '$offset days'::interval"
+    db_dml up "update im_gantt_assignment_timephases set timephase_start = timephase_start + '$offset days'::interval"
+
+    db_dml up "update im_hours set day = day + '$offset days 1 second'::interval"
+
+    db_dml up "update im_hours set creation_date = creation_date + '$offset days'::interval"
+
+    db_dml up "update im_indicator_results set result_date = result_date + '$offset days'::interval"
+
+    db_dml up "update im_invoices set deadline_start_date = deadline_start_date + '$offset days'::interval"
+
+    db_dml up "update im_payments set received_date = received_date + '$offset days'::interval"
+
+    db_dml up "update im_planning_items set item_date = item_date + '$offset days'::interval"
+
+    db_dml up "update im_prices set end_date = end_date + '$offset days'::interval"
+    db_dml up "update im_prices set start_date = start_date + '$offset days'::interval"
+
+    db_dml up "update im_projects set end_date = end_date + '$offset days'::interval"
+    db_dml up "update im_projects set start_date = start_date + '$offset days'::interval"
+
+    db_dml up "update im_repeating_costs set start_date = start_date + '$offset days'::interval, end_date = end_date + '$offset days'::interval"
+
+    db_dml up "update im_user_absences set start_date = start_date + '$offset days'::interval, end_date = end_date + '$offset days'::interval"
+    db_dml up "update im_user_absences set last_modified = last_modified + '$offset days'::interval"
+
+    db_dml up "update im_tickets set ticket_alarm_date = ticket_alarm_date + '$offset days'::interval"
+    db_dml up "update im_tickets set ticket_creation_date = ticket_creation_date + '$offset days'::interval"
+    db_dml up "update im_tickets set ticket_reaction_date = ticket_reaction_date + '$offset days'::interval"
+    db_dml up "update im_tickets set ticket_confirmation_date = ticket_confirmation_date + '$offset days'::interval"
+    db_dml up "update im_tickets set ticket_done_date = ticket_done_date + '$offset days'::interval"
+    db_dml up "update im_tickets set ticket_signoff_date = ticket_signoff_date + '$offset days'::interval"
+    db_dml up "update im_tickets set ticket_customer_deadline = ticket_customer_deadline + '$offset days'::interval"
+
+    db_dml up "update im_prices set start_date = start_date + '$offset days'::interval"
+
+    db_dml up "update im_timesheet_invoices set invoice_period_start = invoice_period_start + '$offset days'::interval"
+    db_dml up "update im_timesheet_invoices set invoice_period_end = invoice_period_end + '$offset days'::interval"
+
+    db_dml up "update im_timesheet_prices set valid_through = valid_through + '$offset days'::interval"
+    db_dml up "update im_timesheet_prices set valid_from = valid_from + '$offset days'::interval"
+
+    db_dml up "update im_timesheet_tasks set scheduling_constraint_date = scheduling_constraint_date + '$offset days'::interval"
+    db_dml up "update im_timesheet_tasks set deadline_date = deadline_date + '$offset days'::interval"
+
+    db_dml up "update survsimp_question_responses set date_answer = date_answer + '$offset days'::interval"
+
+    return $offset
+}

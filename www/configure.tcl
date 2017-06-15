@@ -534,6 +534,19 @@ db_dml comp "update im_component_plugins set enabled_p = 'f' where plugin_name =
 
 
 
+
+# ---------------------------------------------------------------
+# Time shifting objects
+# ---------------------------------------------------------------
+
+ns_write "<br>&nbsp;<h2>Time shifting demo-data</h2>\n"
+ns_write "<li>Shifting projects etc..."
+if {[catch {im_sysconfig_timeshift} err_msg]} {
+    ns_write "<li>Warning: There was an error time shifting. However, this operation is optional."
+    ns_write "<li>Warning details:<br><pre>$err_msg</pre>"
+}
+
+
 # ---------------------------------------------------------------
 # Set the ASUS verbosity level to "-1" = User needs to choose.
 # ---------------------------------------------------------------
