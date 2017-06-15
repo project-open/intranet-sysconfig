@@ -401,10 +401,6 @@ if {"minimum" eq $features} {
     db_dml menu "update im_menus set enabled_p = 'f' where label = 'indicators'"
     db_dml menu "update im_menus set enabled_p = 'f' where label = 'dashboard'"
     db_dml menu "update im_menus set enabled_p = 'f' where label = ''"
-    db_dml menu "update im_menus set enabled_p = 'f' where label = ''"
-    db_dml menu "update im_menus set enabled_p = 'f' where label = ''"
-    db_dml menu "update im_menus set enabled_p = 'f' where label = ''"
-    db_dml menu "update im_menus set enabled_p = 'f' where label = ''"
 
 }
 
@@ -445,6 +441,15 @@ db_dml disable_plugins "
 	)
 "
 
+db_dml disable_categories "
+	update im_categories set enabled_p = 'f' where category in (
+		'CRM Opportunity',
+		'CRM Campaign',
+		'SCRUM Sprint',
+		'Agile Project',
+		'Kanban'
+	)
+"
 
 # ---------------------------------------------------------------
 # Disable ITSM Stuff
