@@ -427,7 +427,8 @@ db_dml disable_menus "
 	update im_menus set enabled_p = 'f' where label in (
 		'home_summary','projects_open','resource_management_home','expenses_dashboard',
 		'dashboard','customers_potential','customers_inactive','customers_active',
-		'projects_potential','projects_closed', 'project_gantt', 'project_resources'
+		'projects_potential','projects_closed', 'project_gantt', 'project_resources',
+		'portfolio_dashboard', 'project_programs'
 	)
 "
 
@@ -443,13 +444,12 @@ db_dml disable_plugins "
 
 db_dml disable_categories "
 	update im_categories set enabled_p = 'f' where category in (
-		'CRM Opportunity',
-		'CRM Campaign',
-		'SCRUM Sprint',
-		'Agile Project',
-		'Kanban'
+		'CRM Opportunity', 'CRM Campaign'
 	)
 "
+#		'SCRUM Sprint', 'Agile Project', 'Kanban'
+
+
 
 # ---------------------------------------------------------------
 # Disable ITSM Stuff
