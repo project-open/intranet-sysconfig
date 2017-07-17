@@ -18,4 +18,5 @@
   <msg key="SysConfig">SysConfig</msg>
   <msg key="SysConfig_Wizard">SysConfig Wizard</msg>
   <msg key="System_Config_Wizard">Systeem configuratie wizard</msg>
+  <msg key="System_Configuration_Wizard">Systeem configuratie wizard</msg>
 </message_catalog>
