@@ -1,10 +1,20 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <message_catalog package_key="intranet-sysconfig" locale="en_US" charset="ISO-8859-1">
 
+  <msg key="Config">Config</msg>
   <msg key="Do_This_Now">Do This Now</msg>
+  <msg key="Import_Conf">Import Configuration</msg>
   <msg key="LDAP_Configuration_Wizard">LDAP Configuration Wizard</msg>
+  <msg key="LDAP_Wizard">LDAP Wizard</msg>
   <msg key="Page_deptcomp">Department</msg>
   <msg key="Page_features">Features</msg>
+  <msg key="Page_ldap-authority">ldap-authority</msg>
+  <msg key="Page_ldap-authority2">ldap-authority2</msg>
+  <msg key="Page_ldap-bind">ldap-bind</msg>
+  <msg key="Page_ldap-group-map">ldap-group-map</msg>
+  <msg key="Page_ldap-import">ldap-import</msg>
+  <msg key="Page_ldap-ip-port">ldap-ip-port</msg>
+  <msg key="Page_ldap-type-domain">ldap-type-domain</msg>
   <msg key="Page_logo">Logo</msg>
   <msg key="Page_name">Name</msg>
   <msg key="Page_orgsize">Size</msg>
@@ -12,6 +22,7 @@
   <msg key="Page_prodtest">Evaluation</msg>
   <msg key="Page_profiles">Trust Model</msg>
   <msg key="Page_sector">Sector</msg>
+  <msg key="Process_Configurator">Process Configurator</msg>
   <msg key="profiles_all_companies">Modify&lt;br&gt;All&lt;br&gt;Companies</msg>
   <msg key="profiles_all_projects">Modify&lt;br&gt;All&lt;br&gt;Projects</msg>
   <msg key="profiles_employees">Employees</msg>
@@ -22,4 +33,5 @@
   <msg key="SysConfig_Wizard">SysConfig Wizard</msg>
   <msg key="System_Config_Wizard">System Configuration Wizard</msg>
   <msg key="System_Configuration_Wizard">System Configuration Wizard</msg>
+  <msg key="Templates">Templates</msg>
 </message_catalog>
