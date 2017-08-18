@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<message_catalog package_key="intranet-sysconfig" locale="pl_PL" charset="utf-8">
+
+  <msg key="LDAP_Configuration_Wizard">Kreator Konfiguracji LDAP</msg>
+  <msg key="Templates">Szablony</msg>
+</message_catalog>
