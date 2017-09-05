@@ -3,6 +3,7 @@
 
   <msg key="Config">Config</msg>
   <msg key="Do_This_Now">Do This Now</msg>
+  <msg key="Export_Conf">Export Conf</msg>
   <msg key="Import_Conf">Import Configuration</msg>
   <msg key="LDAP_Configuration_Wizard">LDAP Configuration Wizard</msg>
   <msg key="LDAP_Wizard">LDAP Wizard</msg>

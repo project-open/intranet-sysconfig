@@ -1,6 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <message_catalog package_key="intranet-sysconfig" locale="pl_PL" charset="utf-8">
 
+  <msg key="Config">Konfiguracja</msg>
+  <msg key="Do_This_Now">Zrób to teraz</msg>
+  <msg key="Export_Conf">Eksport konfiguracji</msg>
+  <msg key="Import_Conf">Import konfiguracji</msg>
   <msg key="LDAP_Configuration_Wizard">Kreator Konfiguracji LDAP</msg>
+  <msg key="LDAP_Wizard">LDAP Wizard</msg>
+  <msg key="Page_deptcomp">Dział</msg>
+  <msg key="Page_features">Funkcje</msg>
+  <msg key="Page_ldap-authority">ldap-authority</msg>
+  <msg key="Page_ldap-authority2">ldap-authority2</msg>
+  <msg key="Page_ldap-bind">ldap-bind</msg>
+  <msg key="Page_ldap-group-map">ldap-group-map</msg>
+  <msg key="Page_ldap-import">ldap-import</msg>
+  <msg key="Page_ldap-ip-port">ldap-ip-port</msg>
+  <msg key="Page_ldap-type-domain">ldap-type-domain</msg>
+  <msg key="Page_logo">Logotyp</msg>
+  <msg key="Page_name">Nazwa</msg>
+  <msg key="Page_orgsize">Wielkość</msg>
+  <msg key="Page_packages">Pakiety</msg>
+  <msg key="Page_prodtest">Ocena</msg>
+  <msg key="Page_profiles">Model zaufania</msg>
+  <msg key="Page_sector">Sektor</msg>
+  <msg key="Process_Configurator">Konfigurator procesu</msg>
+  <msg key="profiles_all_companies">Zmodyfikuj&lt;br/&gt;wszystkie&lt;br/&gt;firmy</msg>
+  <msg key="profiles_all_projects">Zmodyfikuj&lt;br/&gt;wszystkie&lt;br/&gt;projekty</msg>
+  <msg key="profiles_employees">Pracownicy</msg>
+  <msg key="profiles_finance">Zmodyfikuj&lt;br/&gt;finanse</msg>
+  <msg key="profiles_project_managers">Kierownicy projektów</msg>
+  <msg key="profiles_senior_managers">Kadra zarządzająca</msg>
+  <msg key="SysConfig">SysConfig</msg>
+  <msg key="SysConfig_Wizard">Kreator konfiguracji systemu</msg>
+  <msg key="System_Config_Wizard">Kreator konfiguracji systemu</msg>
+  <msg key="System_Configuration_Wizard">Kreator konfiguracji systemu</msg>
   <msg key="Templates">Szablony</msg>
 </message_catalog>
