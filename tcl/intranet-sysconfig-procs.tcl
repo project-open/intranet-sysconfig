@@ -566,16 +566,18 @@ ad_proc -public im_sysconfig_load_configuration { file } {
 # ------------------------------------------------------------
 
 ad_proc -public im_sysconfig_timeshift { 
-
+    { -offset "" }
 } {
     Checks the demo-data for age and updated demo-data
 } {
-    set now_julian [db_string av "select to_char(now()::date, 'J')"]
-    set project_start_julian [db_string av "select round(avg(to_char(start_date, 'J')::integer)) from im_projects"]
+    if {"" eq $offset} {
+	set now_julian [db_string av "select to_char(now()::date, 'J')"]
+	set project_start_julian [db_string av "select round(avg(to_char(start_date, 'J')::integer)) from im_projects"]
 
-    # Check if the data are already up to date
-    set offset [expr $now_julian - $project_start_julian]
-    if {$offset <= 0} { return $offset }
+	# Check if the data are already up to date
+	set offset [expr $now_julian - $project_start_julian]
+	if {$offset <= 0} { return $offset }
+    }
 
     db_dml up "update acs_logs set log_date = log_date + '$offset days'::interval"
 
