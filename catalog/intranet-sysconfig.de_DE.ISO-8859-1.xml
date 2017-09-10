@@ -4,7 +4,7 @@
   <msg key="Config">Config</msg>
   <msg key="Do_This_Now">Jetzt machen</msg>
   <msg key="Import_Conf">Import Configuration</msg>
-  <msg key="LDAP_Configuration_Wizard">LDAP Konfigurationsassistent</msg>
+  <msg key="LDAP_Configuration_Wizard">LDAP-Konfigurationsassistent</msg>
   <msg key="LDAP_Wizard">LDAP Wizard</msg>
   <msg key="Page_deptcomp">Abteilung</msg>
   <msg key="Page_features">Funktionen</msg>
