@@ -174,3 +174,39 @@ SELECT im_component_plugin__new (
 -- );
 -- 
 
+
+
+
+
+
+create or replace function im_sysconfig_shift_hours (integer)
+returns integer as $body$
+declare
+	p_shift_days		alias for $1;
+	row			record;
+begin
+	IF p_shift_days > 0 THEN
+		FOR row IN
+			select	user_id, day, project_id
+			from	im_hours
+			order by day DESC
+		LOOP
+			RAISE NOTICE 'im_sysconfig_shift_hours: user_id=%, project_id=%, day=%', row.user_id, row.project_id, row.day;
+			update im_hours set day = day + (p_shift_days||' days')::interval
+			where user_id = row.user_id and day = row.day and project_id = row.project_id;
+		END LOOP;
+	ELSE
+		FOR row IN
+			select	user_id, day, project_id
+			from	im_hours
+			order by day
+		LOOP
+			update im_hours set day = day + (p_shift_days||' days')::interval
+			where user_id = row.user_id and day = row.day and project_id = row.project_id;
+		END LOOP;
+	END IF;
+	return 0;
+end;$body$ language 'plpgsql';
+
+-- select im_sysconfig_shift_hours(1);
+
