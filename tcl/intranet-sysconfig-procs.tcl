@@ -152,9 +152,6 @@ ad_proc -public im_sysconfig_admin_guide {
     set items [split $content "\n"]
     set ctr 0
     foreach line $items {
-
-    	ns_log Notice "im_sysconfig_admin_guide: line=$line"
-
 	# Split each line into a list based on tabs ("\t")
 	set item [split $line ";"]
 	if {[llength $item] < 3} { continue }
