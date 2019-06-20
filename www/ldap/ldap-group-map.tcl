@@ -35,6 +35,14 @@ switch $ldap_type {
 				   Guests [im_freelance_group_id] \
 				   ]
     }
+    ol {
+	# Set a simple mapping of OpenLDAP groups to ]po[ groups
+	set default_group_map [list \
+				   "unix-admin" [im_admin_group_id] \
+				   Users [im_employee_group_id] \
+				   Guests [im_freelance_group_id] \
+				   ]
+    }
     default {
 	set default_group_map [list \
 				   dell [im_employee_group_id] \
@@ -78,6 +86,9 @@ if {"636" eq $port} { set params(LdapURI) "ldaps://$ip_address:$port" }
 
 
 array set result_hash [auth::ldap::batch_import::read_ldif_groups [array get params] $authority_id]
+
+# ad_return_complaint 1 "ldap-group-map.tcl: [array get result_hash]"
+
 set result $result_hash(result)
 set debug $result_hash(debug)
 array set groups_hash $result_hash(objects)
