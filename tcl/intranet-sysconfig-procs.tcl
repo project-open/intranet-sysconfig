@@ -202,7 +202,7 @@ ad_proc -public im_sysconfig_admin_guide {
 		<span id=\"q_$ctr\">
 			<div style='margin-left: 30px;'>
 				<div style='float: right;width: 100%;'><h2 style=\"text-decoration:underline;cursor:hand;cursor:pointer;margin-bottom:4px;\">$link_html</h2>$desc</div>
-				<div id=\"gr_$ctr\" style='float: left;width: 20px;margin-left:-30px;margin-top: 18px;cursor:hand;cursor:pointer;'><img src='/intranet/images/plus_blue_15_15.gif' alt=''/></div>
+				<div id=\"gr_$ctr\" style='float: left;width: 20px;margin-left:-30px;margin-top: 18px;cursor:hand;cursor:pointer;'><img src='/intranet/images/collapse-blue-right-15x15.png' alt=''/></div>
 				<div style='clear: both;'></div>
 			</div>
 		</span>
@@ -312,10 +312,10 @@ ad_proc -public im_sysconfig_admin_guide {
 		\$(\"#q_and_a\").find('span\[id^=\"q_\"\]').each(function(i, obj) {
     			\$(obj).click(function() {
 				\$('#a_'+obj.id.substr(2)).slideToggle('slow', function() {});
-				if ( \$('\#gr_'+obj.id.substr(2)).html().indexOf('plus') > -1 ) {
-					\$('\#gr_'+obj.id.substr(2)).html(\"<img src='/intranet/images/minus_blue_15_15.gif' alt='' />\");
+				if ( \$('\#gr_'+obj.id.substr(2)).html().indexOf('right') > -1 ) {
+					\$('\#gr_'+obj.id.substr(2)).html(\"<img src='/intranet/images/collapse-blue-down-15x15.png' alt='' />\");
 				} else {
-					\$('\#gr_'+obj.id.substr(2)).html(\"<img src='/intranet/images/plus_blue_15_15.gif' alt='' />\");
+					\$('\#gr_'+obj.id.substr(2)).html(\"<img src='/intranet/images/collapse-blue-right-15x15.png' alt='' />\");
 				};
     			});
 			\$('\#a_'+obj.id.substr(2)).slideToggle('slow');
