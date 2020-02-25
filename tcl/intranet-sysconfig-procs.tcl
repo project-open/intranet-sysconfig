@@ -103,7 +103,7 @@ ad_proc -public im_sysconfig_component { } {
 # 
 # ----------------------------------------------------------------------
 
-ad_proc -public im_sysconfig_admin_guide { 
+ad_proc -public im_sysconfig_admin_guide_disabled { 
     {-show_items "open"}
 } {
     Returns a formatted HTML block with a wizard tht
