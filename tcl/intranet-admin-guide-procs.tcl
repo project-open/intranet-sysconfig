@@ -154,6 +154,7 @@ ad_proc -public im_sysconfig_admin_guide {
 "
 
 set services {
+    { free_demo "Free Demo" }
     { cloud_backup "Cloud Backup" }
     { saas_hosting "SaaS Hosting" }
     { security_patches "Security Patches" }

@@ -26,8 +26,10 @@ h6 { font-size: 13px; line-height: 28px;}
     <td><img src="/intranet/images/conf_wizard_services.png" /> </td>
     <td>
     <h2>Add-On Service</h2>
-    <p>Do you need help you to deploy the full power of ]project-open[?</p>
-    <p>Our business model is to provide these services to you.</p>
+    <p>Do you need us to help you to deploy the full power of ]project-open[?
+    Our business model is to provide these services.</p>
+    <p>Please choose the options on the left-hand side.</p>
+
   </tr> 
 </tbody>
 </table>
