@@ -295,11 +295,8 @@ if {"dept" eq $deptcomp} {
 }
 
 if {"sme" eq $deptcomp} {
-    # Portfolio Planner is useful also for companies:
-    # set disable(intranet-portfolio-planner) 1
     set disable(intranet-portfolio-management) 1
     set disable(sencha-reporting-portfolio) 1
-
 }
 
 # Other organization types:
@@ -488,8 +485,50 @@ if {$disable(intranet-helpdesk)} {
 }
 
 
+# ---------------------------------------------------------------
+# Disable Portfolio stuff
+#
+if {$disable(intranet-portfolio-management)} {
 
+    ns_write "<li>Disabling Portfolio Categories ... "
+    catch {
+	db_dml disable_itsm_cats "
+		update im_categories 
+		set enabled_p = 'f'
+		where category_id in (
+			[join [im_sub_categories -include_disabled_p 1 [im_project_type_program]] ","]
+		)
+        "
+    } err
+    ns_write "done<br><pre>$err</pre>\n"
 
+    # Disable score_* DynFields
+    set portfolio_enable_disable "Disable"
+    set portfolio_score_display "none"
+} else {
+    # Enable score_* DynFields
+    set portfolio_enable_disable "Enable"
+    set portfolio_score_display "edit"
+}
+
+ns_write "<li>$portfolio_enable_disable Portfolio DynFields ... "
+catch {db_dml enable_portfolio_dynfields "
+	update im_dynfield_type_attribute_map
+	set display_mode = :portfolio_score_display
+	where attribute_id in (
+		select	da.attribute_id
+		from	im_dynfield_attributes da,
+			acs_objects o,
+			acs_attributes a
+		where	da.attribute_id = o.object_id and 
+			da.acs_attribute_id = a.attribute_id and
+			a.object_type = 'im_project' and
+			a.attribute_name like 'score_%'
+		order by a.object_type, a.attribute_name
+	)
+    "
+} err
+ns_write "done<br><pre>$err</pre>\n"
 
 
 # ---------------------------------------------------------------
