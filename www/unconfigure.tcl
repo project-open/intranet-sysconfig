@@ -51,7 +51,7 @@ set main_ps [db_list main_ps "
 	select	project_id
 	from	im_projects p
 	where	parent_id is null and 
-		project_status_id in (select * from im_sub_categories([im_project_status_open])) and 
+		-- project_status_id in (select * from im_sub_categories([im_project_status_open])) and 
 		project_type_id in (select * from im_sub_categories([im_project_type_gantt]))
 	order by project_id
 "]
