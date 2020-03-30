@@ -21,6 +21,7 @@
 	    <h2>Other</h2>
 	    <ul>
 		<li><a href="/intranet-sysconfig/unconfigure">Disable everything except SysConfig Wizard</a><br>&nbsp;
+		<li><a href="/intranet-sysconfig/milestone-tracker-fake">Fake project history for Milestone Tracker</a><br>&nbsp;
 		<li><a href="/intranet-sysconfig/del_security_tokens">Delete Security Tokens</a><br>&nbsp;
 		<li><a href="/intranet-sysconfig/move_projects">Move Projects & Forum Topics</a><br>&nbsp;
 	    </ul>

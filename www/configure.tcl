@@ -522,7 +522,7 @@ catch {db_dml enable_portfolio_dynfields "
 			acs_attributes a
 		where	da.attribute_id = o.object_id and 
 			da.acs_attribute_id = a.attribute_id and
-			a.object_type = 'im_project' and
+			a.object_type in ('im_project') and
 			a.attribute_name like 'score_%'
 		order by a.object_type, a.attribute_name
 	)
