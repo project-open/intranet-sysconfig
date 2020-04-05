@@ -134,15 +134,17 @@ ad_proc -public im_sysconfig_admin_guide {
     # -------------------------------------------------------------
     # Show services select
     #
-    set page_html {
+    set system_id [im_system_id]
+    set teaser_args [export_vars {{no_template_p 1} {no_title_p 1} {system_id $system_id}}]
+    set page_html "
 	    <script>
 	    var onServiceChange = function(serviceId) {
-		var url = 'https://www.project-open.net/en/service-teaser-'+serviceId+'?no_template_p=1&no_title_p=1';
-		var el = document.getElementsByName('serviceFrame')[0];
+		var url = 'https://www.project-open.net/en/service-teaser-'+serviceId+'?$teaser_args';
+		var el = document.getElementsByName('serviceFrame')\[0\];
 		if (el) el.src = url; 
 	    }
 	    </script>
-    }
+    "
 
     append page_html "
 	<style>.fullwidth-list .component table.taskboard td { vertical-align:top; } </style>
@@ -150,7 +152,7 @@ ad_proc -public im_sysconfig_admin_guide {
 <table width=100% border=0>
 <tr valign=center>
 <td width='200'>
-    <form action='https://www.project-open.net/en/service-teaser-submit' method=GET>
+    <form action='https://www.project-open.net/intranet-crm-tracking/service-teaser-submit' method=GET>
 "
 
 set services {
