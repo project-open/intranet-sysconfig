@@ -152,7 +152,8 @@ ad_proc -public im_sysconfig_admin_guide {
 <table width=100% border=0>
 <tr valign=center>
 <td width='200'>
-    <form action='https://www.project-open.net/intranet-crm-tracking/service-teaser-submit' method=GET>
+    <form action='https://www.project-open.net/intranet-crm-tracking/service-teaser-submit' method=POST>
+    [export_vars -form {system_id}]
 "
 
 set services {
