@@ -1,14 +1,29 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <message_catalog package_key="intranet-sysconfig" locale="nl_NL" charset="ISO-8859-1">
 
+  <msg key="Config">Config</msg>
+  <msg key="Do_This_Now">Doe dit nu</msg>
+  <msg key="Export_Conf">Export Conf</msg>
+  <msg key="Import_Conf">Import Configuratie</msg>
+  <msg key="LDAP_Configuration_Wizard">LDAP Configuratie Wizard</msg>
+  <msg key="LDAP_Wizard">LDAP Wizard</msg>
   <msg key="Page_deptcomp">Afdeling</msg>
   <msg key="Page_features">Mogelijkheden</msg>
+  <msg key="Page_ldap-authority">Idap-authority</msg>
+  <msg key="Page_ldap-authority2">Idap-autority2</msg>
+  <msg key="Page_ldap-bind">idap-bind</msg>
+  <msg key="Page_ldap-group-map">idap-groep-map</msg>
+  <msg key="Page_ldap-import">Idap_import</msg>
+  <msg key="Page_ldap-ip-port">Idap-ip-port</msg>
+  <msg key="Page_ldap-type-domain">Idap-type-domein</msg>
   <msg key="Page_logo">Logo</msg>
   <msg key="Page_name">Naam</msg>
   <msg key="Page_orgsize">Omvang</msg>
+  <msg key="Page_packages">Packages</msg>
   <msg key="Page_prodtest">Evaluatie</msg>
   <msg key="Page_profiles">Profiel pagina</msg>
   <msg key="Page_sector">Sector</msg>
+  <msg key="Process_Configurator">Proces Configurator</msg>
   <msg key="profiles_all_companies">Wijzig&lt;br&gt;alle&lt;br&gt;bedrijven</msg>
   <msg key="profiles_all_projects">Wijzig&lt;br&gt;alle&lt;br&gt;projecten</msg>
   <msg key="profiles_employees">Personeel</msg>
@@ -19,4 +34,5 @@
   <msg key="SysConfig_Wizard">SysConfig Wizard</msg>
   <msg key="System_Config_Wizard">Systeem configuratie wizard</msg>
   <msg key="System_Configuration_Wizard">Systeem configuratie wizard</msg>
+  <msg key="Templates">Templates</msg>
 </message_catalog>
