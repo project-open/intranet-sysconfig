@@ -8,7 +8,7 @@
 <input type="hidden" name="name" value="1">
 
 <h2>Organization Name and Default Email</h2>
-
+<br>&nbsp;<br>
 <p>
 Please enter your organization name. This name appears in emails,<br>
 invoices and other financial documents. Example: "ABC Consulting, Inc."
@@ -18,10 +18,12 @@ invoices and other financial documents. Example: "ABC Consulting, Inc."
 </p>
 <br>
 
+<br>&nbsp;<br>
 <p>
 Please enter the email of the support team in charge of @po;noquote@.<br>
 This email will appear in the "Contact" footer of every page.
 </p>
+
 <p>
 <input type="text" name="name_email" value="@name_email@" size="40">
 </p>

@@ -30,8 +30,8 @@
   <td><input type="radio" name="deptcomp" value="dept" <if @deptcomp@ eq "dept">checked</if>></td>
   <td colspan="2">
 	<b>Corporate Department</b><br>
-	My organization is a department within a larger corporation.<br>
-	@po_short;noquote@ will have to be integrated with our ERP system.<br>&nbsp;
+	My organization is a department within a large company or corporation.<br>
+        We need project portfolio management (PPM) and ERP integration.<br>&nbsp;
   </td>
 </tr>
 
@@ -40,8 +40,7 @@
   <td colspan="2">
 	<b>Independent Subsidary or Division</b><br>
 	My organization is a subsidary or division of a larger corporation.<br>
-	 @po_short;noquote@ would need to communicate financial 
-	information to our headquarter's financial reporting system.<br>&nbsp;
+	@po_short;noquote@ should send financial information to the corporate headquarter.<br>&nbsp;
   </td>
 </tr>
 
@@ -50,7 +49,7 @@
   <td colspan="2">
 	<b>Small or Medium Enterprise (SME)</b><br>
 	My company is an SME with 3-3000 employees.<br>
-	We need to export @po_short;noquote@ financial information to our accounting system.
+	We need CRM, financial data should go into into our accounting system.
 	<br>&nbsp;
   </td>
 </tr>

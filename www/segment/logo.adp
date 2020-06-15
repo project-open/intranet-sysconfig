@@ -9,17 +9,20 @@
 
 <h2>Organization Logo</h2>
 
+<br>&nbsp;<br>
 <p>
-You can configure @po;noquote@ to show your logo. 
-</p><br>
-
+You can configure @po;noquote@ to show your logo.<br>
+Vertical 40px - 80px, horizontal 100px - 300px, type: PNG, GIF or JPEG.<br>
+By default, the system will use the @po_short;noquote@ logo above.
+</p>
 <p>
 <input type="file" name="logo_file" size="40">
 </p>
 
-<br>
+<br>&nbsp;<br>
 <p>
-You can also enter your corporate URL.
-</p><br>
+Please enter your corporate URL for the logo link:
+</p>
+<p>
 <input type="text" name="logo_url" value="@logo_url@" size="40">
 </p>
