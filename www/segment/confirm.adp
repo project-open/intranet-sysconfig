@@ -3,9 +3,9 @@
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <master src="master">
-<property name="doc(title)">Confirm your Configuration</property>
+<property name="doc(title)">Confirm Your Configuration</property>
 
-<h2>Confirm your Configuration</h2>
+<h2>Confirm Your Configuration</h2>
 
 <table border="0" width="80%">
 
