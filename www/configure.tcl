@@ -331,6 +331,9 @@ if {"minimum" eq $features} {
     
     # Just enable the bare minimum
     set disable(intranet-core) 0
+    set disable(intranet-cost) 0
+    set disable(intranet-invoices) 0
+    set disable(intranet-task-management) 0
     set disable(intranet-gantt-editor) 0
     set disable(intranet-portfolio-planner) 0
     set disable(intranet-reporting) 0
@@ -645,7 +648,7 @@ ns_write "done\n"
 
 ns_write "<p>&nbsp;</p><hr><p>&nbsp;</p>\n"
 ns_write "<h1>Configuration Successful</h1>\n"
-ns_write "<blockquote><b>Please <a href='/acs-admin/server-restart'>restart your server now</a></b>.</blockquote>\n"
+ns_write "<blockquote><b>Please <a href='/acs-admin/server-restart'>Restart your server now</a></b>.</blockquote>\n"
 ns_write "<p>&nbsp;</p>\n"
 
 
