@@ -5,6 +5,19 @@
 <master src="master">
 <property name="doc(title)">Confirm Your Configuration</property>
 
+<script type="text/javascript" <if @::__csp_nonce@ not nil>nonce="@::__csp_nonce;literal@"</if>>
+window.addEventListener('load', function() { 
+    var start = document.getElementById('button_start_config');
+    if (!!start) start.addEventListener('click', function() { 
+	window.document.wizard.action='/intranet-sysconfig/configure'; 
+	window.document.wizard.submit();	
+    });
+});
+</script>
+
+
+
+
 <h2>Confirm Your Configuration</h2>
 
 <table border="0" width="80%">
@@ -24,9 +37,7 @@
 	</p>
 
 	<blockquote>
-	<input type="button" value='Start Configuration Process'
-	onClick="window.document.wizard.action='/intranet-sysconfig/configure'; submit();" 
-	title='Confirm' alt='Confirm'>
+	<input type="button" value='Start Configuration Process' id=button_start_config title='Confirm' alt='Confirm'>
 	</blockquote
 </td><tr>
 

@@ -121,12 +121,10 @@ switch $page {
 set prev_page [lindex $pages $index-1]
 set next_page [lindex $pages $index+1]
 
-set prev_link "<input type=button class=button name=prev value='&lt;&lt; Prev'
-	onClick=\"window.document.wizard.action='$prev_page'; submit();\" 
+set prev_link "<input id=segment_prev type=button class=button name=prev value='&lt;&lt; Prev'
 	title='&lt;&lt; Prev' alt='&lt;&lt; Prev'
 >"
-set next_link "<input type=button class=button name=next value='Next &gt;&gt;'
-	onClick=\"sendForm();\" 
+set next_link "<input id=segment_next type=button class=button name=next value='Next &gt;&gt;'
 	title='Next &gt;&gt;' alt='Next &gt;&gt;'
 >"
 

@@ -112,16 +112,13 @@ set next_page [lindex $pages $index+1]
 
 if {"index" == $page} { set test_page "" }
 
-set prev_link "<input type=button class=button name=prev value=' &lt;&lt; Prev '
-	onClick=\"window.document.wizard.action='$prev_page'; submit();\" 
+set prev_link "<input id=ldap_button_prev type=button class=button name=prev value=' &lt;&lt; Prev '
 	title='&lt;&lt; Prev' alt='&lt;&lt; Prev'
 >"
-set test_link "<input type=button class=button name=test value=' Test Parameters '
-	onClick=\"window.document.wizard.action='$test_page'; submit();\" 
+set test_link "<input id=ldap_button_test type=button class=button name=test value=' Test Parameters '
 	title='Test Parameters' alt='Test parameters'
 >"
-set next_link "<input type=button class=button name=next value=' Next &gt;&gt; '
-	onClick=\"window.document.wizard.action='$next_page'; submit();\" 
+set next_link "<input id=ldap_button_next type=button class=button name=next value=' Next &gt;&gt; '
 	title='Next &gt;&gt;' alt='Next &gt;&gt;'
 >"
 

@@ -1,6 +1,53 @@
 <% if {![info exists title] && [info exists doc(title)]} { set title $doc(title) } %>
+
+<%
+    #
+    # Add the content security policy. Since this is the blank master, we
+    # are defensive and check, if the system has already support for it
+    # via the CSPEnabledP kernel parameter. Otherwise users would be
+    # blocked out.
+    #
+    if {[parameter::get -parameter CSPEnabledP -package_id [ad_acs_kernel_id] -default 0]
+	&& [info commands ::security::csp::render] ne ""
+    } {
+	set csp [::security::csp::render]
+	if {$csp ne ""} {
+
+	    set ua [ns_set iget [ns_conn headers] user-agent]
+	    if {[regexp {Trident/.*rv:([0-9]{1,}[\.0-9]{0,})} $ua]} {
+		set field X-Content-Security-Policy
+	    } else {
+		set field Content-Security-Policy
+	    }
+
+	    ns_set put [ns_conn outputheaders] $field $csp
+	}
+    }
+
+%>
+
+
 <%= [im_header "[lang::message::lookup "" intranet-sysconfig.SysConfig_Wizard "SysConfig Wizard:"] $title"] %>
 <%= [im_navbar "admin"] %>
+
+<script type="text/javascript" <if @::__csp_nonce@ not nil>nonce="@::__csp_nonce;literal@"</if>>
+window.addEventListener('load', function() { 
+    var prev = document.getElementById('segment_prev');
+    if (!!prev) prev.addEventListener('click', function() { 
+	window.document.wizard.action='@prev_page;noquote@'; 
+	window.document.wizard.submit();	
+    });
+    var next = document.getElementById('segment_next');
+    if (!!next) next.addEventListener('click', function() { 
+	window.document.wizard.action='@next_page;noquote@'; 
+	window.document.wizard.submit();	
+    });
+});
+</script>
+
+<!--
+	onClick=\"sendForm();\" 
+-->
 
 <img src="/intranet/images/cleardot.gif" width=2 height=2>
 <table cellpadding="2" cellspacing="0" border="1" frame=void class='tablePortletElement'>
@@ -51,7 +98,7 @@
 </form>
 </table>
 
-    <script type="text/javascript">
+    <script type="text/javascript" <if @::__csp_nonce@ not nil>nonce="@::__csp_nonce;literal@"</if>>
     <!--
 	function sendForm()
         {
@@ -64,7 +111,7 @@
     </script>
 
 <if @page@ eq sector>
-    <script type="text/javascript">
+    <script type="text/javascript" <if @::__csp_nonce@ not nil>nonce="@::__csp_nonce;literal@"</if>>
     <!--
         function validate() {
             if( window.document.wizard.sector.value == "" )
@@ -80,7 +127,7 @@
 </if>
 
 <elseif @page@ eq deptcomp>
-    <script type="text/javascript">
+    <script type="text/javascript" <if @::__csp_nonce@ not nil>nonce="@::__csp_nonce;literal@"</if>>
     <!--
         function validate() {
             if( window.document.wizard.deptcomp.value == "" )
@@ -96,7 +143,7 @@
 </elseif>
 
 <elseif @page@ eq features>
-    <script type="text/javascript">
+    <script type="text/javascript" <if @::__csp_nonce@ not nil>nonce="@::__csp_nonce;literal@"</if>>
     <!--
         function validate() {
             if( window.document.wizard.features.value == "" )
@@ -113,7 +160,7 @@
 
 
 <elseif @page@ eq orgsize>
-    <script type="text/javascript">
+    <script type="text/javascript" <if @::__csp_nonce@ not nil>nonce="@::__csp_nonce;literal@"</if>>
     <!--
         function validate() {
             if( window.document.wizard.orgsize.value == "" )
@@ -129,7 +176,7 @@
 </elseif>
 
 <elseif @page@ eq name>
-    <script type="text/javascript">
+    <script type="text/javascript" <if @::__csp_nonce@ not nil>nonce="@::__csp_nonce;literal@"</if>>
     <!--
         function validate()
         {
@@ -179,7 +226,7 @@
 </elseif>
 
 <elseif @page@ eq profiles>
-    <script type="text/javascript">
+    <script type="text/javascript" <if @::__csp_nonce@ not nil>nonce="@::__csp_nonce;literal@"</if>>
     <!--
         function validate() {
 
@@ -210,7 +257,7 @@
 </elseif>
 
 <else>
-    <script type="text/javascript">
+    <script type="text/javascript" <if @::__csp_nonce@ not nil>nonce="@::__csp_nonce;literal@"</if>>
     <!--
 	function validate() { 
 	     return true; 

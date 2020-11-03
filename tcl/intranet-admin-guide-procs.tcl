@@ -137,7 +137,7 @@ ad_proc -public im_sysconfig_admin_guide {
     set system_id [im_system_id]
     set teaser_args [export_vars {{no_template_p 1} {no_title_p 1} {system_id $system_id}}]
     set page_html "
-	    <script>
+	    <script type=\"text/javascript\" nonce=\"[im_csp_nonce]\">
 	    var onServiceChange = function(serviceId) {
 		var url = 'https://www.project-open.net/en/service-teaser-'+serviceId+'?$teaser_args';
 		var el = document.getElementsByName('serviceFrame')\[0\];
@@ -218,7 +218,7 @@ foreach tuple $services {
 	</table>
 	</form>
 
-  	<script>
+	<script type=\"text/javascript\" nonce=\"[im_csp_nonce]\">
     	\$(document).ready(function(){
 		\$(\"#q_and_a\").find('span\[id^=\"q_\"\]').each(function(i, obj) {
     			\$(obj).click(function() {
