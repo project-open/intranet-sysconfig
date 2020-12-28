@@ -12,6 +12,7 @@
 ad_page_contract {
     Move projects
 } {
+    { offset:integer "" }
 }
 
 set current_user_id [auth::require_login]
@@ -26,5 +27,5 @@ if {!$user_is_admin_p} {
 # 
 # ---------------------------------------------------------------
 
-im_sysconfig_timeshift
+im_sysconfig_timeshift -offset $offset
 
