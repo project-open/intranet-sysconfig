@@ -3,7 +3,7 @@
 # Copyright (c) 2003-2006 ]project-open[
 #
 # All rights reserved. Please check
-# http://www.project-open.com/license/ for details.
+# https://www.project-open.com/license/ for details.
 
 ad_page_contract {
     This is the master file that deals with functions
@@ -21,7 +21,7 @@ ad_page_contract {
 
     logo:optional
     logo_file:optional
-    { logo_url:optional http://www.project-open.com/ }
+    { logo_url:optional https://www.project-open.com/ }
 
     profiles:optional
     profiles_array:array,optional

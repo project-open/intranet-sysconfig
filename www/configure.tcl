@@ -3,7 +3,7 @@
 # Copyright (c) 2003-2006 ]project-open[
 #
 # All rights reserved. Please check
-# http://www.project-open.com/license/ for details.
+# https://www.project-open.com/license/ for details.
 
 # ---------------------------------------------------------------
 # Page Contract
@@ -23,7 +23,7 @@ ad_page_contract {
     { name_name "Tigerpond, Inc." }
     { name_email "sysadmin@tigerpond.com" }
     { logo_file "" }
-    { logo_url "http://www.project-open.com" }
+    { logo_url "https://www.project-open.com" }
     profiles_array:array,optional
 }
 

@@ -3,7 +3,7 @@
 # Copyright (C) 2012-2013 ]project-open[
 #
 # All rights reserved. Please check
-# http://www.project-open.com/license/ for details.
+# https://www.project-open.com/license/ for details.
 
 
 set warnings_html ""

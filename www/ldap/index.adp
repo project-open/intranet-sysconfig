@@ -6,7 +6,7 @@
 <h2>LDAP Driver Not Installed</h2>
 <p>The package 'auth-ldap-adldapsearch' is not installed on this system.<br>
 Starting with ]po[ V5.0, this driver is only available as part of the <br>
-<a href="http://www.project-open.com/en/products/editions.html" target="_blank"
+<a href="https://www.project-open.com/en/products/editions.html" target="_blank"
 >Professional or Enterprise editions</a> of ]project-open[. <br>
 </font>
 </if>

@@ -1413,10 +1413,10 @@ admin {
 "intranet-core";"parameter";"EnableProjectProgramPathP";"0";
 "intranet-core";"parameter";"EnableUsersAuthorityP";"0";
 "intranet-core";"parameter";"EnableUsersUsernameP";"0";
-"intranet-core";"parameter";"ErrorReportURL";"http://www.project-open.net/intranet-forum/new-system-incident";
+"intranet-core";"parameter";"ErrorReportURL";"https://www.project-open.net/intranet-forum/new-system-incident";
 "intranet-core";"parameter";"FindCmd";"/usr/bin/find";
 "intranet-core";"parameter";"GzipCmd";"/usr/bin/gzip";
-"intranet-core";"parameter";"HomeNewsComponentUrl";"http://www.project-open.net/intranet-rss-reader/index?format=iframe300";
+"intranet-core";"parameter";"HomeNewsComponentUrl";"https://www.project-open.net/intranet-rss-reader/index?format=iframe300";
 "intranet-core";"parameter";"HomeProjectListSortClause";"project_nr";
 "intranet-core";"parameter";"MainProjectSelectMaxdepth";"1";
 "intranet-core";"parameter";"MaintenanceMessage";"";
@@ -1443,7 +1443,7 @@ admin {
 "intranet-core";"parameter";"SubprojectStatusFilteringEnabledP";"0";
 "intranet-core";"parameter";"SystemCSS";"";
 "intranet-core";"parameter";"SystemLogo";"";
-"intranet-core";"parameter";"SystemLogoLink";"http://www.project-open.com/";
+"intranet-core";"parameter";"SystemLogoLink";"https://www.project-open.com/";
 "intranet-core";"parameter";"SystemNavbarGifPath";"navbar_default";
 "intranet-core";"parameter";"TarCmd";"/bin/tar";
 "intranet-core";"parameter";"TestDemoDevServer";"0";
@@ -1653,8 +1653,8 @@ admin {
 "intranet-earned-value-management";"portlet";"Earned Value";"t";
 "intranet-exchange-rate";"menu";"admin_exchange_rates";"t";
 "intranet-exchange-rate";"menu";"finance_exchange_rates";"t";
-"intranet-exchange-rate";"parameter";"ExchangeRateUpdateUrl";"http://www.project-open.net/intranet-asus-server/exchange-rates.xml";
-"intranet-exchange-rate";"parameter";"ExchangeRateUrlXRates";"http://www.x-rates.com/d/USD/table.html";
+"intranet-exchange-rate";"parameter";"ExchangeRateUpdateUrl";"https://www.project-open.net/intranet-asus-server/exchange-rates.xml";
+"intranet-exchange-rate";"parameter";"ExchangeRateUrlXRates";"https://www.x-rates.com/d/USD/table.html";
 "intranet-exchange-rate";"parameter";"MaxDaysOutdated";"365";
 "intranet-expenses";"menu";"expenses";"t";
 "intranet-expenses";"menu";"finance_expenses";"t";
@@ -1892,7 +1892,7 @@ admin {
 "intranet-rest";"menu";"rest_my_timesheet_projects_hours";"t";
 "intranet-riskmanagement";"portlet";"Project Risks";"f";
 "intranet-search-pg";"parameter";"SearchResultsPerPage";"20";
-"intranet-search-pg";"parameter";"SearchTheWeb";"http://av.com/sites/search/web?q=%s AltaVista http://search.excite.com/search.gw?s=%s Excite http://www.google.com/search?q=%s Google http://hotbot.com/?MT=%s HotBot http://lycos.com/cgi-bin/pursuit?query=%s Lycos http://search.yahoo.com/search?p=%s Yahoo!";
+"intranet-search-pg";"parameter";"SearchTheWeb";"http://av.com/sites/search/web?q=%s AltaVista http://search.excite.com/search.gw?s=%s Excite https://www.google.com/search?q=%s Google http://hotbot.com/?MT=%s HotBot http://lycos.com/cgi-bin/pursuit?query=%s Lycos http://search.yahoo.com/search?p=%s Yahoo!";
 "intranet-search-pg";"parameter";"Symbol2Interval";"m3 {3 month ago} m6 {6 month ago} y1 {1 year ago}";
 "intranet-search-pg-files";"parameter";"IndexerMaxFiles";"100";
 "intranet-search-pg-files";"parameter";"IndexFileContentsP";"1";
@@ -1900,11 +1900,11 @@ admin {
 "intranet-security-update-client";"menu";"software_updates";"t";
 "intranet-security-update-client";"parameter";"ExchangeRateDaysBeforeUpdate";"1";
 "intranet-security-update-client";"parameter";"ExchangeRateSweeperEnabledP";"0";
-"intranet-security-update-client";"parameter";"SecurityUpdateServerUrl";"http://www.project-open.net/intranet-asus-server/update-information";
+"intranet-security-update-client";"parameter";"SecurityUpdateServerUrl";"https://www.project-open.net/intranet-asus-server/update-information";
 "intranet-security-update-client";"parameter";"SecurityUpdateVerboseP";"1";
 "intranet-security-update-client";"portlet";"Exchange Rates ASUS";"t";
 "intranet-security-update-client";"portlet";"Security Update Client Component";"t";
-"intranet-sharepoint";"parameter";"SharepointUrl";"http://www.microsoft.com/base_url/$company_path/$project_path/";
+"intranet-sharepoint";"parameter";"SharepointUrl";"https://www.microsoft.com/base_url/$company_path/$project_path/";
 "intranet-sharepoint";"portlet";"Sharepoint";"f";
 "intranet-simple-survey";"menu";"admin_survsimp";"t";
 "intranet-simple-survey";"menu";"project_reports";"t";
@@ -2016,7 +2016,7 @@ admin {
 "intranet-translation";"portlet";"Timesheet Task Component (AJAXed)";"t";
 "intranet-trans-quality";"portlet";"Project Quality Component";"f";
 "intranet-update-client";"parameter";"CvsPath";"/bin/cvs";
-"intranet-update-client";"parameter";"UpdateServerURL";"http://www.project-open.net/intranet-update-server/update";
+"intranet-update-client";"parameter";"UpdateServerURL";"https://www.project-open.net/intranet-update-server/update";
 "intranet-wiki";"portlet";"Company Wiki Component";"f";
 "intranet-wiki";"portlet";"Home Wiki Component";"f";
 "intranet-wiki";"portlet";"Office Wiki Component";"f";

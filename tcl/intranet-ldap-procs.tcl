@@ -3,7 +3,7 @@
 # Copyright (c) 2011 ]project-open[
 #
 # All rights reserved. Please check
-# http://www.project-open.com/license/ for details.
+# https://www.project-open.com/license/ for details.
 
 ad_library {
     SysConfig LDAP Wizard Library

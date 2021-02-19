@@ -3,7 +3,7 @@
 # Copyright (c) 2006 ]project-open[
 #
 # All rights reserved. Please check
-# http://www.project-open.com/license/ for details.
+# https://www.project-open.com/license/ for details.
 
 ad_library {
     SysConfig Configuration Wizard
@@ -46,7 +46,7 @@ ad_proc -public im_sysconfig_component { } {
 
 	<p>
 	This software has been developed by $po<br>
-	(<a href=http://www.project-open.com/>http://www.project-open.com/</a>) 
+	(<a href=https://www.project-open.com/>https://www.project-open.com/</a>) 
 	based on the work of <br>
 	several open-source projects and other contributors.
 	</p>
@@ -57,7 +57,7 @@ ad_proc -public im_sysconfig_component { } {
 	</tr>
 	<tr>
 		<td>&\#93;project-open&\#91;</td>	
-		<td>http://www.project-open.com/en/project-open-license</td>
+		<td>https://www.project-open.com/en/project-open-license</td>
 	</tr>
 	<tr>
 		<td>NaviServer</td>		
@@ -65,11 +65,11 @@ ad_proc -public im_sysconfig_component { } {
 	</tr>
 	<tr>
 		<td>OpenACS</td>		
-		<td>http://openacs.org/about/licensing/</td>
+		<td>https://openacs.org/about/licensing/</td>
 	</tr>
 	<tr>
 		<td>VMWare Tools</td>	
-		<td>http://www.vmware.com/support/</td>
+		<td>https://www.vmware.com/support/</td>
 	</tr>
 	</table>
 

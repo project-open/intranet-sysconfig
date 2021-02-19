@@ -3,7 +3,7 @@
 # Copyright (c) 2006 ]project-open[
 #
 # All rights reserved. Please check
-# http://www.project-open.com/license/ for details.
+# https://www.project-open.com/license/ for details.
 
 ad_library {
     Interactive Admin Guide
@@ -38,7 +38,7 @@ ad_proc -public im_sysconfig_admin_guide {
     set title "Guide to $po Configuration"
     set main_menu_id [im_menu_id_from_label "main"]
     set return_url [im_url_with_query]
-    set help_site "http://www.project-open.net/en"
+    set help_site "https://www.project-open.net/en"
     set serverroot [acs_root_dir]
     set package_intranet_core [db_string cost "select min(package_id) from apm_packages where package_key = 'intranet-core'" -default ""]
     set package_intranet_cost [db_string cost "select min(package_id) from apm_packages where package_key = 'intranet-cost'" -default ""]

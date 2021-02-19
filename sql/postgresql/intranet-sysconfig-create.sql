@@ -6,7 +6,7 @@
 -- Copyright (c) 2006]project-open[
 --
 -- All rights including reserved. To inquire license terms please 
--- refer to http://www.project-open.com/modules/<module-key>
+-- refer to https://www.project-open.com/modules/<module-key>
 
 
 

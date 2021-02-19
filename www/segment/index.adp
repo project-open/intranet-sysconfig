@@ -9,15 +9,15 @@
 
 <p>
 This software has been developed by @po;noquote@<br>
-(<a href="http://www.project-open.com/">http://www.project-open.com/</a>) 
+(<a href="https://www.project-open.com/">https://www.project-open.com/</a>) 
 based on the work of <br>
 several open-source projects and other contributors.
 </p>
 
 <table cellpadding="2">
-<tr><td>&\#93;project-open&\#91;</td>	<td>http://www.project-open.com/license/</td></tr>
-<tr><td>AOLserver</td>		<td>http://www.aolserver.com/license/</td></tr>
-<tr><td>OpenACS</td>		<td>http://openacs.org/about/licensing/</td></tr>
+<tr><td>&\#93;project-open&\#91;</td>	<td>https://www.project-open.com/license/</td></tr>
+<tr><td>AOLserver</td>		<td>https://www.aolserver.com/license/</td></tr>
+<tr><td>OpenACS</td>		<td>https://openacs.org/about/licensing/</td></tr>
 <tr><td>CygWin</td>		<td>http://cygwin.com/licensing.html</td></tr>
 </table>
 
