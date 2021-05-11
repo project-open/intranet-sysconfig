@@ -369,7 +369,9 @@ ad_proc -public im_sysconfig_timeshift {
 
     db_dml up "update im_payments set received_date = received_date + '$offset days'::interval"
 
-    db_dml up "update im_planning_items set item_date = item_date + '$offset days'::interval"
+    if {[im_table_exists "im_planning_items"]} {
+	db_dml up "update im_planning_items set item_date = item_date + '$offset days'::interval"
+    }
 
     db_dml up "update im_prices set end_date = end_date + '$offset days'::interval"
     db_dml up "update im_prices set start_date = start_date + '$offset days'::interval"
@@ -405,4 +407,23 @@ ad_proc -public im_sysconfig_timeshift {
     db_dml up "update survsimp_question_responses set date_answer = date_answer + '$offset days'::interval"
 
     return $offset
+}
+
+
+
+
+# ------------------------------------------------------------
+# 
+# ------------------------------------------------------------
+
+# Should we move demo projects after next restart?
+set move_demo_projects_p [parameter::get_from_package_key -package_key "intranet-sysconfig" -parameter "MoveDemoProjectsWithNextRestartP" -default ""]
+if {"1" eq $move_demo_projects_p} {
+
+    ns_log Notice "intranet-sysconfig: Shifting projects because MoveDemoProjectsWithNextRestartP = 1"
+    # Shift projects
+    im_sysconfig_timeshift
+
+    # Mark as done to avoid future shifts
+    parameter::set_from_package_key -package_key "intranet-sysconfig" -parameter "MoveDemoProjectsWithNextRestartP" -value "0"
 }
