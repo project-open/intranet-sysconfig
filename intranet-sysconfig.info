@@ -8,7 +8,7 @@
     <singleton-p>t</singleton-p>
     <auto-mount>intranet-sysconfig</auto-mount>
 
-    <version name="5.0.4.0.0" url="https://www.project-open.net/download/apm/intranet-sysconfig-5.0.4.0.0.apm">
+    <version name="5.0.4.0.1" url="https://www.project-open.net/download/apm/intranet-sysconfig-5.0.4.0.1.apm">
         <owner url="mailto:frank.bergmann@project-open.com">Frank Bergmann</owner>
         <summary>System Configuration Wizard</summary>
         <release-date>2016-11-15</release-date>
@@ -22,7 +22,8 @@
         <callbacks>
         </callbacks>
         <parameters>
-            <parameter datatype="string"  min_n_values="1"  max_n_values="1"  name="AdminGuideItemsDone" default="" description="Stores the list of items in the admin guide that have already been processed. You don't have to modify this value, it is for system purposes only."/>
+          <parameter datatype="string"  min_n_values="1"  max_n_values="1"  name="AdminGuideItemsDone" default="" description="Stores the list of items in the admin guide that have already been processed. You don't have to modify this value, it is for system purposes only."/>
+	  <parameter datatype="string"  min_n_values="1"  max_n_values="1"  name="MoveDemoProjectsWithNextRestartP" default="0" description="Should the system move all projects and timesheet data to the current date? This is useful for demo servers in order to show users recent demo data. Never enable this in a production server."/>
         </parameters>
 
     </version>
