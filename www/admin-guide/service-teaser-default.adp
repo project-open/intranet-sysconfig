@@ -29,7 +29,6 @@ h6 { font-size: 13px; line-height: 28px;}
     <p>Do you need us to help you to deploy the full power of ]project-open[?
     Our business model is to provide these services.</p>
     <p>Please choose the options on the left-hand side.</p>
-
   </tr> 
 </tbody>
 </table>
