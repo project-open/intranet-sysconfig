@@ -33,6 +33,9 @@ ad_proc -public im_sysconfig_admin_guide {
     set base_config_wizard_enabled_p [db_string base_en "select enabled_p from im_component_plugins where plugin_name = 'System Configuration Wizard'" -default ""]
     if {"f" ne $base_config_wizard_enabled_p} { return "" }
 
+    set enabled_p [db_string base_en "select enabled_p from im_component_plugins where plugin_name = 'Interactive Administration Guide'" -default ""]
+    if {"f" eq $enabled_p} { return "" }
+
     set po "<span class=brandsec>&\#93;</span><span class=brandfirst>po</span><span class=brandsec>&\#91;</span>"
     set project_open "<span class=brandsec>&\#93;</span><span class=brandfirst>project-open</span><span class=brandsec>&\#91;</span>"
     set title "Guide to $po Configuration"
