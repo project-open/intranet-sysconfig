@@ -46,9 +46,8 @@ set bgcolor(1) " class=roweven"
 template::multirow create templates template_name url
 
 set base_path "$serverroot/packages/intranet-sysconfig/templates"
-set files ""
-catch { set files [im_exec find $base_path -noleaf -type f] }
-foreach file $files {
+set file_list [lsort [glob -nocomplain -type f -directory $base_path "*.{csv}"]]
+foreach file $file_list {
     set file_name [lindex [split $file "/"] end]
     set file_ext [lindex [split $file_name "."] end]
     set file_body [lrange [split $file_name "."] 0 end-1]
